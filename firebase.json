@@ -7,7 +7,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/my-linkedin",
+    "public": "dist/projeto-crud",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -19,5 +19,14 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
