@@ -8,22 +8,25 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <!--------------------------Home--------------------------------->
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/']">
           <i class="fa fa-home"></i>
           <span>Home</span>
         </a>
       </li>
+      <!-------------------------Profile-------------------------------->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-id-card-o"></i>
           <span>Profile</span>
         </a>
       </li>
+      <!-------------------------Projects------------------------------->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="projectNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-gears"></i>
-          <span>My Projects</span>
+          <span>Projects</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="projectNavbarDropdown">
           <a class="dropdown-item" [routerLink]="['/project/mypersonnelprojects']">My Personnel Projects</a>
@@ -32,25 +35,33 @@
           <a class="dropdown-item" [routerLink]="['/project/manageprojects']">Manage Projects</a>
         </div>
       </li>
+      <!------------------------Education------------------------------>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="educationNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-graduation-cap"></i>
-          <span>My Education</span>
+          <span>Education</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="educationNavbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/education/academic/manageacademicstudies']">Manage Academic Studies</a>
-          <a class="dropdown-item" [routerLink]="['/education/certifications/maangecertifications']">Manage Certifications</a>
+          <a class="dropdown-item" [routerLink]="['/education/manageacademicstudies']">Manage Academic Studies</a>
+          <a class="dropdown-item" [routerLink]="['/education/maangecertifications']">Manage Certifications</a>
         </div>
       </li>
+      <!--------------------------University-------------------------->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="universityNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-university"></i>
           <span>University</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="universityNavbarDropdown">
 
+        <div class="dropdown-menu" aria-labelledby="educationNavbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/education/maangecertifications']">List Courses</a><!--TODO LINKAR OS ROUTES CORRETOS DA UNIVERSITY-->
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/education/maangecertifications']">Manage Courses</a>
+          <a class="dropdown-item" [routerLink]="['/education/maangecertifications']">Manage Teachers</a>
+          <a class="dropdown-item" [routerLink]="['/education/maangecertifications']">Manage Subjects</a>
         </div>
       </li>
+      <!--------------------------Contacts-------------------------->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-envelope-o">
@@ -60,6 +71,7 @@
         </a>
       </li>
     </ul>
+    <!-------------------------------------Logout------------------------------------->
     <form [formGroup]="navBarSearchForm">
       <input formControlName="searchKey" class="form-control margin-right-50" type="search" placeholder="Search" aria-label="Search">
     </form>
