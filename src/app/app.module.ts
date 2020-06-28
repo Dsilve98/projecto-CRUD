@@ -9,8 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { ProjectModule } from './project/project.module';
 import { EducationModule } from './education/education.module';
+import { UniversityModule } from './university/university.module';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -18,7 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyDo4FDuveKILEHLY4icN1gc14zsAM8q46w',
   authDomain: 'projeto-crud-ac-ds.firebaseapp.com',
   databaseURL: 'https://projeto-crud-ac-ds.firebaseio.com',
@@ -44,6 +45,7 @@ const firebaseConfig = {
     HomeModule,
     ProjectModule,
     EducationModule,
+    UniversityModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true
@@ -53,7 +55,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [MainComponent]

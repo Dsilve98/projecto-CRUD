@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { navbarRoute } from './layouts/navbar/navbar.route';
 
@@ -12,6 +12,10 @@ const appRoutes: Routes = [
   {
     path: 'education',
     loadChildren: './education/education.module#EducationModule'
+  },
+  {
+    path: 'university',
+    loadChildren: './university/university.module#UniversityModule'
   },
   ...LAYOUT_ROUTES
 ];
