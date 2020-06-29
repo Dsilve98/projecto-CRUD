@@ -14,6 +14,47 @@ h3,
 h4 {
   font-weight: 300;
 }
+/* ==========================================================================
+Cores da Lusofona
+========================================================================== */
+.luso-prim{
+  background-color: #0B3E67;
+}
+
+.luso-sec{
+  background-color: #215075;
+}
+
+.luso-terc{
+  background-color: #7b9ab6;
+}
+
+.luso-prim-dark{
+  background-color: #0A385E;/*072843*/
+}
+
+.luso-terc-dark{
+  color: #476E8D;
+}
+
+
+/*------------------------------Tamanho e cor dos botões------------------------------------*/
+
+.btn-luso-light {
+  color: #fff;
+  background-color: #3E6788;
+  border-color: #3E6788;
+}
+.btn-luso-light:hover {
+  color: #fff;
+  background-color: #356082;
+  border-color: #335b7b;
+}
+
+/*.icon-luso span{
+  font-size: 1rem;
+  font-weight: 100;
+}*/
 
 /* ==========================================================================
 Entity Details Page CSSS
