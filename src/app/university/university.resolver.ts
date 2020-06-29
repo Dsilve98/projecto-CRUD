@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { map, take } from 'rxjs/operators';
-import { IProject, Project } from './university.model';
-import { ProjectService } from './university.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+//import { Injectable } from '@angular/core';
+//import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
+//import { Observable, of } from 'rxjs';
+//import { map, take } from 'rxjs/operators';
+//import { IUniversity, University } from './university.model';
+//import { UniversityService } from './university.service';
+//import { NgxSpinnerService } from 'ngx-spinner';
 
-@Injectable({ providedIn: 'root' })
-export class ProjectResolver implements Resolve<IProject> {
-  constructor(private router: Router, private spinner: NgxSpinnerService, private projectService: ProjectService) {}
+//@Injectable({ providedIn: 'root' })
+//export class ProjectResolver implements Resolve<IUniversity> {
+  //constructor(private router: Router, private spinner: NgxSpinnerService, private projectService: UniversityService) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<IProject> | Observable<never> {
+ /* resolve(route: ActivatedRouteSnapshot): Observable<IUniversity> | Observable<never> {
     const id = route.params.id;
     if (id) {
       this.spinner.show();
-      return this.projectService.getProjectById(id).pipe(map((data: IProject) => {
+      return this.projectService.getProjectById(id).pipe(map((data: IUniversity) => {
         this.spinner.hide();
         if (data) {
           return data;
@@ -26,6 +26,6 @@ export class ProjectResolver implements Resolve<IProject> {
         this.spinner.hide();
       }), take(1));
     }
-    return of(new Project());
-  }
-}
+    return of(new University());
+  }*/
+//}
