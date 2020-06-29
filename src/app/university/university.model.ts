@@ -1,6 +1,6 @@
 export interface ICourses {
   id?: string;
-  courseName?: string;
+  courseName?: string; //TODO FALTA ACABAR O MODELO DE DADOS PARA CONSEGUIR FINALIZAR A CRIAÇÃO DOS CURSOS (MODULO UPDATE)
   teachers?: Teachers;
   city?: string;
   numeroAlunos?: string;
