@@ -1,0 +1,153 @@
+<div class="panel-container">
+  <form [formGroup]="manageAcademicForm" (ngSubmit)="saveAcademics()">
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputProjectName">Project Name</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('projectName').invalid && (manageAcademicForm.get('projectName').dirty || manageAcademicForm.get('projectName').touched) && manageAcademicForm.controls['projectName'].errors ? 'is-invalid' : ''"
+               id="inputProjectName" placeholder="Project Name" formControlName="projectName">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('projectName').invalid && (manageAcademicForm.get('projectName').dirty || manageAcademicForm.get('projectName').touched)">
+          <span *ngIf="manageAcademicForm.controls['projectName'].hasError('required')">This field is required</span>
+          <span *ngIf="manageAcademicForm.controls['projectName'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputProjectAlias">Project Alias</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('projectAlias').invalid && (manageAcademicForm.get('projectAlias').dirty || manageAcademicForm.get('projectAlias').touched) && manageAcademicForm.controls['projectAlias'].errors ? 'is-invalid' : ''"
+               id="inputProjectAlias" placeholder="Project Alias" formControlName="projectAlias">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('projectAlias').invalid && (manageAcademicForm.get('projectAlias').dirty || manageAcademicForm.get('projectAlias').touched)">
+          <span *ngIf="manageAcademicForm.controls['projectAlias'].hasError('required')">This field is required</span>
+          <span *ngIf="manageAcademicForm.controls['projectAlias'].hasError('maxlength')">Max length of this field is 10 characters</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCompanyName">Company Name</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('companyName').invalid && (manageAcademicForm.get('companyName').dirty || manageAcademicForm.get('companyName').touched) && manageAcademicForm.controls['companyName'].errors ? 'is-invalid' : ''"
+               id="inputCompanyName" placeholder="Company Name" formControlName="companyName">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('companyName').invalid && (manageAcademicForm.get('companyName').dirty || manageAcademicForm.get('companyName').touched)">
+          <span *ngIf="manageAcademicForm.controls['companyName'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCompanyAddress">Company Address</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('companyAddress').invalid && (manageAcademicForm.get('companyAddress').dirty || manageAcademicForm.get('companyAddress').touched) && manageAcademicForm.controls['companyAddress'].errors ? 'is-invalid' : ''"
+               id="inputCompanyAddress" placeholder="Company Address" formControlName="companyAddress">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('companyAddress').invalid && (manageAcademicForm.get('companyAddress').dirty || manageAcademicForm.get('companyAddress').touched)">
+          <span *ngIf="manageAcademicForm.controls['companyAddress'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('city').invalid && (manageAcademicForm.get('city').dirty || manageAcademicForm.get('city').touched) && manageAcademicForm.controls['city'].errors ? 'is-invalid' : ''"
+               id="inputCity" placeholder="City" formControlName="city">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('city').invalid && (manageAcademicForm.get('city').dirty || manageAcademicForm.get('city').touched)">
+          <span *ngIf="manageAcademicForm.controls['city'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-4 mb-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control" [ngClass]="manageAcademicForm.get('state').invalid && (manageAcademicForm.get('state').dirty || manageAcademicForm.get('state').touched) && manageAcademicForm.controls['state'].errors ? 'is-invalid' : ''"
+                formControlName="state">
+          <option>Lisboa</option>
+          <option>Amadora</option>
+          <option>Mafra</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('state').invalid && (manageAcademicForm.get('state').dirty || manageAcademicForm.get('state').touched)">
+          <span *ngIf="manageAcademicForm.controls['state'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-2 mb-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('zip').invalid && (manageAcademicForm.get('zip').dirty || manageAcademicForm.get('zip').touched) && manageAcademicForm.controls['zip'].errors ? 'is-invalid' : ''"
+               id="inputZip" placeholder="XXXX-ZZZ" formControlName="zip">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('zip').invalid && (manageAcademicForm.get('zip').dirty || manageAcademicForm.get('zip').touched)">
+          <span *ngIf="manageAcademicForm.controls['zip'].hasError('required')">This field is required</span>
+          <span *ngIf="manageAcademicForm.controls['zip'].hasError('maxlength')">Max length of this field is 8 characters</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="personnelProjectCheckBox" formControlName="personnelProject">
+        <label class="form-check-label" for="personnelProjectCheckBox">
+          Personnel Project
+        </label>
+      </div>
+    </div>
+    <hr>
+    <h4 id="project-team-members-heading">
+      <span>Team Members</span>
+      <button type="button" id="new-team-member-btn" class="btn btn-primary float-right" (click)="addProjectTeamMember()">
+        <i class="fa fa-plus"></i>
+        <span>
+          Add new project team member
+        </span>
+      </button>
+    </h4>
+    <br/>
+    <div class="table-responsive" *ngIf="projectTeamMembersControls.length > 0">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th><span>ID</span></th>
+          <th><span>Member Specialization</span></th>
+          <th><span>Member Name</span></th>
+          <th><span>Start Date</span></th>
+          <th><span>End Date</span></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let projectTeamMember of projectTeamMembersControls; index as i;" formArrayName="projectTeamMembers">
+          <ng-container [formGroupName]="i">
+            <td>{{ projectTeamMember.get('id').value }}</td>
+            <td>
+              <select class="form-control" name="memberSpecialization-{{i}}" id="memberSpecialization-{{i}}" formControlName="memberSpecialization">
+                <option value="PM">Project Manager</option>
+                <option value="TECH_ARCH">Technical Architect</option>
+                <option value="DEVOPS">DevOps</option>
+                <option value="SD">Senior Developer</option>
+                <option value="D">Developer</option>
+                <option value="TM">Test Manager</option>
+                <option value="T">Tester</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" class="form-control" name="memberName-{{i}}" id="memberName-{{i}}" formControlName="memberName"/>
+            </td>
+            <td>
+              <input type="date" class="form-control" name="startDate-{{i}}" id="startDate-{{i}}" formControlName="startDate"/>
+            </td>
+            <td>
+              <input type="date" class="form-control" name="endDate-{{i}}" id="endDate-{{i}}" formControlName="endDate"/>
+            </td>
+            <td class="text-right">
+              <div class="btn-group flex-btn-group-container">
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteProjectTeamMember(i)">
+                  <i class="fa fa-times"></i>
+                  <span class="d-none d-md-inline"> Delete</span>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="row margin-top-10">
+      <div class="col-12">
+        <re-captcha formControlName="formRecaptcha"></re-captcha>
+      </div>
+    </div>
+    <div class="margin-top-20">
+      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+        <i class="fa fa-ban"></i><span>Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" [disabled]="manageAcademicForm.invalid || isSaving" class="btn btn-primary">
+        <i class="fa fa-save"></i><span>Save</span>
+      </button>
+    </div>
+  </form>
+</div>
