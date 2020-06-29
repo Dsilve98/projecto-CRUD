@@ -1,20 +1,24 @@
-export interface IUniversity {
+export interface ICourses {
   id?: string;
-  universitytName?: string;
-  state?: string;
+  courseName?: string;
+  teachers?: Teachers;
   city?: string;
+  numeroAlunos?: string;
+  media?: string;
 }
 
-export class Courses implements IUniversity {
+export class Teachers implements ICourses {
   constructor(
     public id?: string,
-    public courseName?: string,
-    public coordenacao?: string,
-    public registo?: string,
-    public qtdCadeiras?: string,
-    public professores?: string[],
-    public state?: string,
-    public city?: string,
+    public teachersName?: string,
+    public contacto?: string,
+  ) {}
+}
+
+export class Subjects implements ICourses {
+  constructor(
+    public id?: string,
+    public subjectName?: string,
   ) {}
 }
 
