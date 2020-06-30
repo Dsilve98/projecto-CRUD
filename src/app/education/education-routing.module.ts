@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageAcademicStudiesComponent } from './academic/manage-academic-studies/manage-academic-studies.component';
 import { ManageCertificationsComponent } from './certifications/manage-certifications/manage-certifications.component';
-import {ManageProjectsUpdateComponent} from "../project/manage-projects/manage-projects-update.component";
-import {ProjectResolver} from "../project/project.resolver";
+import {UpdateComponent} from "./academic/manage-academic-studies/update/update.component";
+import {AcademicResolver} from "./academic/academic.resolver";
+import {UpdateComponent2} from "./certifications/manage-certifications/update/update.component";
+import {CertificationResolver} from "./certifications/certification.resolver";
 
 const routes: Routes = [
   {
@@ -15,13 +17,20 @@ const routes: Routes = [
       },
       {
         path: 'manageacademicstudies/new',
-        component: ManageProjectsUpdateComponent,
+        component: UpdateComponent,
         resolve: {
-          project: ProjectResolver
+          academic: AcademicResolver
         }
       },
       {
-        path: 'maangecertifications',
+        path: 'managecertifications/new',
+        component: UpdateComponent2,
+        resolve: {
+          academic: CertificationResolver
+        }
+      },
+      {
+        path: 'managecertifications',
         component: ManageCertificationsComponent
       }]
   }];
