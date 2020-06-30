@@ -34,18 +34,18 @@ export class UpdateComponent implements OnInit {
     if (!this.manageAcademicForm.get(['id']).value) {
       this.projectService.createAcademic(this.manageAcademicForm.getRawValue()).then(data => {
           this.isSaving = false;
-          this.toastr.success('New Project successfully created', 'Success');
-          this.router.navigate(['/manageprojects']);
+          this.toastr.success('New Academic successfully created', 'Success');
+          this.router.navigate(['/manageacademicstudies']);
         },
         err => {
           this.isSaving = false;
-          this.toastr.error('An error occurred while saving a new project', 'Error');
+          this.toastr.error('An error occurred while saving a new academic', 'Error');
         });
     } else {
       this.projectService.updateAcademic(this.manageAcademicForm.getRawValue()).then(() => {
           this.isSaving = false;
           this.toastr.success('Project successfully updated', 'Success');
-          this.router.navigate(['/manageprojects']);
+          this.router.navigate(['/manageacademicstudies']);
         },
         err => {
           this.isSaving = false;
@@ -58,73 +58,31 @@ export class UpdateComponent implements OnInit {
     window.history.back();
   }
 
-  addProjectTeamMember(): void {
-    (this.manageAcademicForm.get(['projectTeamMembers']) as FormArray).push(this.createProjectTeamMemberFormGroup());
-  }
-
-  deleteProjectTeamMember(index: number): void {
-    (this.manageAcademicForm.get(['projectTeamMembers']) as FormArray).removeAt(index);
-  }
-
-  get projectTeamMembersControls(): Array<AbstractControl> {
-    return (this.manageAcademicForm.get('projectTeamMembers') as FormArray).controls;
-  }
-
   private createForm() {
     this.manageAcademicForm = new FormGroup({
       id: new FormControl(''),
-      projectName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      projectAlias: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-      companyName: new FormControl('', [Validators.required]),
-      companyAddress: new FormControl('', [Validators.required]),
-      state: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      zip: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
-      personnelProject: new FormControl(false, [Validators.required]),
-      formRecaptcha: new FormControl(null, [Validators.required]),
-      projectTeamMembers: this.formBuilder.array([]),
-    });
-  }
-
-  private createProjectTeamMemberFormGroup(): FormGroup {
-    return new FormGroup({
-      id: new FormControl(''),
-      memberSpecialization: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      memberName: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+      educationalInstitution: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      formation: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      fieldOfStudy: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
-      endDate: new FormControl('')
+      endDate: new FormControl('', [Validators.required]),
+      grade: new FormControl('', [Validators.required]),
+      activities: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
+      description: new FormControl(false, [Validators.required]),
     });
   }
 
   private updateForm(academic: Academic): void {
     this.manageAcademicForm.patchValue({
       id: academic.id,
-      activities: academic.activities,
-      description: academic.description,
       educationalInstitution: academic.educationalInstitution,
-      endDate: academic.endDate,
-      fieldOfStudy: academic.fieldOfStudy,
       formation: academic.formation,
+      fieldOfStudy: academic.fieldOfStudy,
+      startDate: academic.startDate,
+      endDate: academic.endDate,
       grade: academic.grade,
-      startDate: academic.startDate
+      activities: academic.activities,
+      description: academic.description
     });
   }
-
-  /*private createProjectTeamMemberFormArray(academic: Academic): FormGroup[] {
-    const fg: FormGroup[] = [];
-    if (!academic.) {
-      project.projectTeamMembers = [];
-    }
-    project.projectTeamMembers.forEach(projectTeamMember => {
-      fg.push(this.formBuilder.group({
-          id: new FormControl(projectTeamMember.id),
-          memberSpecialization: new FormControl(projectTeamMember.memberSpecialization, [Validators.required, Validators.maxLength(50)]),
-          memberName: new FormControl(projectTeamMember.memberName, [Validators.required, Validators.maxLength(250)]),
-          startDate: new FormControl(projectTeamMember.startDate, [Validators.required]),
-          endDate: new FormControl(projectTeamMember.endDate)
-        })
-      );
-    });
-    return fg;
-  }*/
 }

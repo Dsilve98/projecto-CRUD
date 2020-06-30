@@ -73,73 +73,8 @@
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="personnelProjectCheckBox" formControlName="personnelProject">
-          <label class="form-check-label" for="personnelProjectCheckBox">
-            Personnel Project
-          </label>
-        </div>
-      </div>
       <hr>
-      <h4 id="project-team-members-heading">
-        <span>Team Members</span>
-        <button type="button" id="new-team-member-btn" class="btn btn-primary float-right" (click)="addProjectTeamMember()">
-          <i class="fa fa-plus"></i>
-          <span>
-          Add new project team member
-        </span>
-        </button>
-      </h4>
       <br/>
-      <div class="table-responsive" *ngIf="projectTeamMembersControls.length > 0">
-        <table class="table table-striped">
-          <thead class="thead-dark">
-          <tr>
-            <th><span>ID</span></th>
-            <th><span>Member Specialization</span></th>
-            <th><span>Member Name</span></th>
-            <th><span>Start Date</span></th>
-            <th><span>End Date</span></th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let projectTeamMember of projectTeamMembersControls; index as i;" formArrayName="projectTeamMembers">
-            <ng-container [formGroupName]="i">
-              <td>{{ projectTeamMember.get('id').value }}</td>
-              <td>
-                <select class="form-control" name="memberSpecialization-{{i}}" id="memberSpecialization-{{i}}" formControlName="memberSpecialization">
-                  <option value="PM">Project Manager</option>
-                  <option value="TECH_ARCH">Technical Architect</option>
-                  <option value="DEVOPS">DevOps</option>
-                  <option value="SD">Senior Developer</option>
-                  <option value="D">Developer</option>
-                  <option value="TM">Test Manager</option>
-                  <option value="T">Tester</option>
-                </select>
-              </td>
-              <td>
-                <input type="text" class="form-control" name="memberName-{{i}}" id="memberName-{{i}}" formControlName="memberName"/>
-              </td>
-              <td>
-                <input type="date" class="form-control" name="startDate-{{i}}" id="startDate-{{i}}" formControlName="startDate"/>
-              </td>
-              <td>
-                <input type="date" class="form-control" name="endDate-{{i}}" id="endDate-{{i}}" formControlName="endDate"/>
-              </td>
-              <td class="text-right">
-                <div class="btn-group flex-btn-group-container">
-                  <button type="button" class="btn btn-danger btn-sm" (click)="deleteProjectTeamMember(i)">
-                    <i class="fa fa-times"></i>
-                    <span class="d-none d-md-inline"> Delete</span>
-                  </button>
-                </div>
-              </td>
-            </ng-container>
-          </tbody>
-        </table>
-      </div>
       <div class="row margin-top-10">
         <div class="col-12">
           <re-captcha formControlName="formRecaptcha"></re-captcha>

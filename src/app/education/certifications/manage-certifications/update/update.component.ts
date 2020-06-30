@@ -56,18 +56,6 @@ export class UpdateComponent2 implements OnInit {
       window.history.back();
   }
 
-    //addProjectTeamMember(): void {
-    //(this.manageAcademicForm.get(['projectTeamMembers']) as FormArray).push(this.createProjectTeamMemberFormGroup());
-  //}
-
-    //deleteProjectTeamMember(index: number): void {
-    //(this.manageAcademicForm.get(['projectTeamMembers']) as FormArray).removeAt(index);
-  //}
-
-    //get projectTeamMembersControls(): Array<AbstractControl> {
-      //return (this.manageAcademicForm.get('projectTeamMembers') as FormArray).controls;
-  //}
-
   private createForm() {
       this.manageCertificationForm = new FormGroup({
         id: new FormControl(''),
@@ -81,15 +69,6 @@ export class UpdateComponent2 implements OnInit {
       });
     }
 
- /* private createProjectTeamMemberFormGroup(): FormGroup {
-      return new FormGroup({
-        id: new FormControl(''),
-        memberSpecialization: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-        memberName: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-        startDate: new FormControl('', [Validators.required]),
-        endDate: new FormControl('')
-      });
-    }*/
 
   private updateForm(certification: Certification): void {
       this.manageCertificationForm.patchValue({
@@ -103,22 +82,4 @@ export class UpdateComponent2 implements OnInit {
         certUrl: certification.certUrl,
       });
   }
-
-    /*private createProjectTeamMemberFormArray(academic: Academic): FormGroup[] {
-      const fg: FormGroup[] = [];
-      if (!academic.) {
-        project.projectTeamMembers = [];
-      }
-      project.projectTeamMembers.forEach(projectTeamMember => {
-        fg.push(this.formBuilder.group({
-            id: new FormControl(projectTeamMember.id),
-            memberSpecialization: new FormControl(projectTeamMember.memberSpecialization, [Validators.required, Validators.maxLength(50)]),
-            memberName: new FormControl(projectTeamMember.memberName, [Validators.required, Validators.maxLength(250)]),
-            startDate: new FormControl(projectTeamMember.startDate, [Validators.required]),
-            endDate: new FormControl(projectTeamMember.endDate)
-          })
-        );
-      });
-      return fg;
-    }*/
 }
