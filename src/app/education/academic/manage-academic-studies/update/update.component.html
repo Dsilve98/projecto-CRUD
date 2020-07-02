@@ -29,23 +29,6 @@
           <span *ngIf="manageAcademicForm.controls['fieldOfStudy'].hasError('required')">This field is required</span>
         </div>
       </div>
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputStartDate">Start Date</label>
-        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('startDate').invalid && (manageAcademicForm.get('startDate').dirty || manageAcademicForm.get('startDate').touched) && manageAcademicForm.controls['startDate'].errors ? 'is-invalid' : ''"
-               id="inputStartDate" placeholder="Start Date" formControlName="companyAddress">
-        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('startDate').invalid && (manageAcademicForm.get('startDate').dirty || manageAcademicForm.get('startDate').touched)">
-          <span *ngIf="manageAcademicForm.controls['startDate'].hasError('required')">This field is required</span>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputEndDate">End Date</label>
-        <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('endDate').invalid && (manageAcademicForm.get('endDate').dirty || manageAcademicForm.get('endDate').touched) && manageAcademicForm.controls['endDate'].errors ? 'is-invalid' : ''"
-               id="inputEndDate" placeholder="End Date" formControlName="endDate">
-        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('endDate').invalid && (manageAcademicForm.get('endDate').dirty || manageAcademicForm.get('endDate').touched)">
-          <span *ngIf="manageAcademicForm.controls['endDate'].hasError('required')">This field is required</span>
-        </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6 mb-6">
@@ -56,7 +39,7 @@
             <span *ngIf="manageAcademicForm.controls['grade'].hasError('required')">This field is required</span>
           </div>
         </div>
-        <div class="form-group col-md-2 mb-2">
+        <div class="form-group col-md-6 mb-6">
           <label for="inputActivities">Activities</label>
           <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('activities').invalid && (manageAcademicForm.get('activities').dirty || manageAcademicForm.get('activities').touched) && manageAcademicForm.controls['activities'].errors ? 'is-invalid' : ''"
                  id="inputActivities" placeholder="Activities" formControlName="activities">
@@ -64,13 +47,30 @@
             <span *ngIf="manageAcademicForm.controls['activities'].hasError('required')">This field is required</span>
           </div>
         </div>
-        <div class="form-group col-md-2 mb-2">
+        <div class="form-group col-md-8 mb-8">
           <label for="inputDescription">Description</label>
           <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('discription').invalid && (manageAcademicForm.get('discription').dirty || manageAcademicForm.get('discription').touched) && manageAcademicForm.controls['discription'].errors ? 'is-invalid' : ''"
                  id="inputDescription" placeholder="Discription" formControlName="discription">
           <div class="invalid-feedback" *ngIf="manageAcademicForm.get('discription').invalid && (manageAcademicForm.get('discription').dirty || manageAcademicForm.get('discription').touched)">
             <span *ngIf="manageAcademicForm.controls['discription'].hasError('required')">This field is required</span>
           </div>
+        </div>
+        <div class="form-group col-md-2 mb-2">
+          <label for="inputStartDate">Start Date</label>
+          <input type="date" class="form-control" [ngClass]="manageAcademicForm.get('startDate').invalid && (manageAcademicForm.get('startDate').dirty || manageAcademicForm.get('startDate').touched) && manageAcademicForm.controls['startDate'].errors ? 'is-invalid' : ''"
+                 id="inputStartDate" placeholder="Start Date" formControlName="companyAddress">
+          <div class="invalid-feedback" *ngIf="manageAcademicForm.get('startDate').invalid && (manageAcademicForm.get('startDate').dirty || manageAcademicForm.get('startDate').touched)">
+            <span *ngIf="manageAcademicForm.controls['startDate'].hasError('required')">This field is required</span>
+          </div>
+        </div>
+      </div>
+    <div class="form-row">
+      <div class="form-group col-md-2 mb-2">
+        <label for="inputEndDate">End Date</label>
+        <input type="date" class="form-control" [ngClass]="manageAcademicForm.get('endDate').invalid && (manageAcademicForm.get('endDate').dirty || manageAcademicForm.get('endDate').touched) && manageAcademicForm.controls['endDate'].errors ? 'is-invalid' : ''"
+               id="inputEndDate" placeholder="End Date" formControlName="endDate">
+        <div class="invalid-feedback" *ngIf="manageAcademicForm.get('endDate').invalid && (manageAcademicForm.get('endDate').dirty || manageAcademicForm.get('endDate').touched)">
+          <span *ngIf="manageAcademicForm.controls['endDate'].hasError('required')">This field is required</span>
         </div>
       </div>
       <hr>

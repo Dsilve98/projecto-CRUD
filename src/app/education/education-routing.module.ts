@@ -6,9 +6,6 @@ import {UpdateComponent} from "./academic/manage-academic-studies/update/update.
 import {AcademicResolver} from "./academic/academic.resolver";
 import {UpdateComponent2} from "./certifications/manage-certifications/update/update.component";
 import {CertificationResolver} from "./certifications/certification.resolver";
-import {ManageProjectsUpdateComponent} from "../project/manage-projects/manage-projects-update.component";
-import {ProjectResolver} from "../project/project.resolver";
-import {ManageProjectsDetailComponent} from "../project/manage-projects/manage-projects-detail.component";
 import {DetailComponent} from "./academic/manage-academic-studies/detail/detail.component";
 import {DetailComponent2} from "./certifications/manage-certifications/detail/detail.component";
 

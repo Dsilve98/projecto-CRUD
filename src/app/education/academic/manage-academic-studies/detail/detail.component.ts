@@ -14,8 +14,8 @@ export class DetailComponent implements OnInit {
   constructor(protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ project }) => {
-      this.academic = project;
+    this.activatedRoute.data.subscribe(({ academic }) => {
+      this.academic = academic;
     });
   }
 

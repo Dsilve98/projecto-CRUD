@@ -2,131 +2,117 @@
   <form [formGroup]="manageCourseForm" (ngSubmit)="saveCourse()">
     <div class="form-row">
       <div class="form-group col-md-6 mb-6">
-        <label for="inputProjectName">Project Name</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('projectName').invalid && (manageCourseForm.get('projectName').dirty || manageCourseForm.get('projectName').touched) && manageCourseForm.controls['projectName'].errors ? 'is-invalid' : ''"
-               id="inputProjectName" placeholder="Project Name" formControlName="projectName">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('projectName').invalid && (manageCourseForm.get('projectName').dirty || manageCourseForm.get('projectName').touched)">
-          <span *ngIf="manageCourseForm.controls['projectName'].hasError('required')">This field is required</span>
-          <span *ngIf="manageCourseForm.controls['projectName'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        <label for="inputcourseName">Course Name</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('courseName').invalid && (manageCourseForm.get('courseName').dirty || manageCourseForm.get('courseName').touched) && manageCourseForm.controls['courseName'].errors ? 'is-invalid' : ''"
+               id="inputcourseName" placeholder="Course Name" formControlName="courseName">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('courseName').invalid && (manageCourseForm.get('courseName').dirty || manageCourseForm.get('courseName').touched)">
+          <span *ngIf="manageCourseForm.controls['courseName'].hasError('required')">This field is required</span>
+          <span *ngIf="manageCourseForm.controls['courseName'].hasError('maxlength')">Max length of this field is 50 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
-        <label for="inputProjectAlias">Project Alias</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('projectAlias').invalid && (manageCourseForm.get('projectAlias').dirty || manageCourseForm.get('projectAlias').touched) && manageCourseForm.controls['projectAlias'].errors ? 'is-invalid' : ''"
-               id="inputProjectAlias" placeholder="Project Alias" formControlName="projectAlias">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('projectAlias').invalid && (manageCourseForm.get('projectAlias').dirty || manageCourseForm.get('projectAlias').touched)">
-          <span *ngIf="manageCourseForm.controls['projectAlias'].hasError('required')">This field is required</span>
-          <span *ngIf="manageCourseForm.controls['projectAlias'].hasError('maxlength')">Max length of this field is 10 characters</span>
+        <label for="inputmaxStudents">Maximum Students</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('maxStudents').invalid && (manageCourseForm.get('maxStudents').dirty || manageCourseForm.get('maxStudents').touched) && manageCourseForm.controls['maxStudents'].errors ? 'is-invalid' : ''"
+               id="inputmaxStudents" placeholder="Maximum Students" formControlName="maxStudents">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('maxStudents').invalid && (manageCourseForm.get('maxStudents').dirty || manageCourseForm.get('maxStudents').touched)">
+          <span *ngIf="manageCourseForm.controls['maxStudents'].hasError('required')">This field is required</span>
+          <span *ngIf="manageCourseForm.controls['maxStudents'].hasError('maxlength')">Max length of this field is 10 characters</span>
         </div>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6 mb-6">
-        <label for="inputCompanyName">Company Name</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('companyName').invalid && (manageCourseForm.get('companyName').dirty || manageCourseForm.get('companyName').touched) && manageCourseForm.controls['companyName'].errors ? 'is-invalid' : ''"
-               id="inputCompanyName" placeholder="Company Name" formControlName="companyName">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('companyName').invalid && (manageCourseForm.get('companyName').dirty || manageCourseForm.get('companyName').touched)">
-          <span *ngIf="manageCourseForm.controls['companyName'].hasError('required')">This field is required</span>
+        <label for="inputaverage">Average</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('average').invalid && (manageCourseForm.get('average').dirty || manageCourseForm.get('average').touched) && manageCourseForm.controls['average'].errors ? 'is-invalid' : ''"
+               id="inputaverage" placeholder="Average" formControlName="average">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('average').invalid && (manageCourseForm.get('average').dirty || manageCourseForm.get('average').touched)">
+          <span *ngIf="manageCourseForm.controls['average'].hasError('required')">This field is required</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
-        <label for="inputCompanyAddress">Company Address</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('companyAddress').invalid && (manageCourseForm.get('companyAddress').dirty || manageCourseForm.get('companyAddress').touched) && manageCourseForm.controls['companyAddress'].errors ? 'is-invalid' : ''"
-               id="inputCompanyAddress" placeholder="Company Address" formControlName="companyAddress">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('companyAddress').invalid && (manageCourseForm.get('companyAddress').dirty || manageCourseForm.get('companyAddress').touched)">
-          <span *ngIf="manageCourseForm.controls['companyAddress'].hasError('required')">This field is required</span>
+        <label for="inputexamDate">Exam Date</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('examDate').invalid && (manageCourseForm.get('examDate').dirty || manageCourseForm.get('examDate').touched) && manageCourseForm.controls['examDate'].errors ? 'is-invalid' : ''"
+               id="inputexamDate" placeholder="Exam Date" formControlName="examDate">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('examDate').invalid && (manageCourseForm.get('examDate').dirty || manageCourseForm.get('examDate').touched)">
+          <span *ngIf="manageCourseForm.controls['examDate'].hasError('required')">This field is required</span>
         </div>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6 mb-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('city').invalid && (manageCourseForm.get('city').dirty || manageCourseForm.get('city').touched) && manageCourseForm.controls['city'].errors ? 'is-invalid' : ''"
-               id="inputCity" placeholder="City" formControlName="city">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('city').invalid && (manageCourseForm.get('city').dirty || manageCourseForm.get('city').touched)">
-          <span *ngIf="manageCourseForm.controls['city'].hasError('required')">This field is required</span>
+        <label for="inputcredits">Credits</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('credits').invalid && (manageCourseForm.get('credits').dirty || manageCourseForm.get('credits').touched) && manageCourseForm.controls['credits'].errors ? 'is-invalid' : ''"
+               id="inputcredits" placeholder="Credits" formControlName="credits">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('credits').invalid && (manageCourseForm.get('credits').dirty || manageCourseForm.get('credits').touched)">
+          <span *ngIf="manageCourseForm.controls['credits'].hasError('required')">This field is required</span>
         </div>
       </div>
-      <div class="form-group col-md-4 mb-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control" [ngClass]="manageCourseForm.get('state').invalid && (manageCourseForm.get('state').dirty || manageCourseForm.get('state').touched) && manageCourseForm.controls['state'].errors ? 'is-invalid' : ''"
-                formControlName="state">
-          <option>Lisboa</option>
-          <option>Amadora</option>
-          <option>Mafra</option>
-        </select>
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('state').invalid && (manageCourseForm.get('state').dirty || manageCourseForm.get('state').touched)">
-          <span *ngIf="manageCourseForm.controls['state'].hasError('required')">This field is required</span>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputnumberHalfs">Number Halfs</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('numberHalfs').invalid && (manageCourseForm.get('numberHalfs').dirty || manageCourseForm.get('numberHalfs').touched) && manageCourseForm.controls['numberHalfs'].errors ? 'is-invalid' : ''"
+               id="inputnumberHalfs" placeholder="Number Halfs" formControlName="numberHalfs">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('numberHalfs').invalid && (manageCourseForm.get('numberHalfs').dirty || manageCourseForm.get('numberHalfs').touched)">
+          <span *ngIf="manageCourseForm.controls['numberHalfs'].hasError('required')">This field is required</span>
         </div>
       </div>
-      <div class="form-group col-md-2 mb-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('zip').invalid && (manageCourseForm.get('zip').dirty || manageCourseForm.get('zip').touched) && manageCourseForm.controls['zip'].errors ? 'is-invalid' : ''"
-               id="inputZip" placeholder="XXXX-ZZZ" formControlName="zip">
-        <div class="invalid-feedback" *ngIf="manageCourseForm.get('zip').invalid && (manageCourseForm.get('zip').dirty || manageCourseForm.get('zip').touched)">
-          <span *ngIf="manageCourseForm.controls['zip'].hasError('required')">This field is required</span>
-          <span *ngIf="manageCourseForm.controls['zip'].hasError('maxlength')">Max length of this field is 8 characters</span>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputexamDate">Area</label>
+        <input type="text" class="form-control" [ngClass]="manageCourseForm.get('area').invalid && (manageCourseForm.get('area').dirty || manageCourseForm.get('area').touched) && manageCourseForm.controls['area'].errors ? 'is-invalid' : ''"
+               id="inputarea" placeholder="Area" formControlName="area">
+        <div class="invalid-feedback" *ngIf="manageCourseForm.get('area').invalid && (manageCourseForm.get('area').dirty || manageCourseForm.get('area').touched)">
+          <span *ngIf="manageCourseForm.controls['area'].hasError('required')">This field is required</span>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="personnelProjectCheckBox" formControlName="personnelProject">
-        <label class="form-check-label" for="personnelProjectCheckBox">
-          Personnel Project
-        </label>
       </div>
     </div>
     <hr>
-    <h4 id="project-team-members-heading">
-      <span>Team Members</span>
-      <button type="button" id="new-team-member-btn" class="btn btn-primary float-right" (click)="addProjectTeamMember()">
+    <h4 id="teacher-heading">
+      <span>Teachers</span>
+      <button type="button" id="new-teacher-btn" class="btn btn-primary float-right" (click)="addTeacher()">
         <i class="fa fa-plus"></i>
         <span>
-          Add new project team member
+          Add new Teacher
         </span>
       </button>
     </h4>
     <br/>
-    <div class="table-responsive" *ngIf="projectTeamMembersControls.length > 0">
+    <div class="table-responsive" *ngIf="teacherControls.length > 0">
       <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
           <th><span>ID</span></th>
-          <th><span>Member Specialization</span></th>
-          <th><span>Member Name</span></th>
-          <th><span>Start Date</span></th>
-          <th><span>End Date</span></th>
+          <th><span>Teacher Name</span></th>
+          <th><span>Contact</span></th>
+          <th><span>Teacher Specialization</span></th>
+          <th><span>City</span></th>
           <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let projectTeamMember of projectTeamMembersControls; index as i;" formArrayName="projectTeamMembers">
+        <tr *ngFor="let teacher of teacherControls; index as i;" formArrayName="teacher">
           <ng-container [formGroupName]="i">
-            <td>{{ projectTeamMember.get('id').value }}</td>
+            <td>{{ teacher.get('id').value }}</td>
             <td>
-              <select class="form-control" name="memberSpecialization-{{i}}" id="memberSpecialization-{{i}}" formControlName="memberSpecialization">
-                <option value="PM">Project Manager</option>
-                <option value="TECH_ARCH">Technical Architect</option>
-                <option value="DEVOPS">DevOps</option>
-                <option value="SD">Senior Developer</option>
-                <option value="D">Developer</option>
-                <option value="TM">Test Manager</option>
-                <option value="T">Tester</option>
+              <select class="form-control" name="teacherSpecialization-{{i}}" id="teacherSpecialization-{{i}}" formControlName="teacherSpecialization">
+                <option value="PM">Matemática</option>
+                <option value="TECH_ARCH">Física</option>
+                <option value="DEVOPS">Programação</option>
+                <option value="SD">Web</option>
+                <option value="D">Redes</option>
+                <option value="TM">Móvel</option>
               </select>
             </td>
             <td>
-              <input type="text" class="form-control" name="memberName-{{i}}" id="memberName-{{i}}" formControlName="memberName"/>
+              <input type="text" class="form-control" name="teacherName-{{i}}" id="teacherName-{{i}}" formControlName="teacherName"/>
             </td>
             <td>
-              <input type="date" class="form-control" name="startDate-{{i}}" id="startDate-{{i}}" formControlName="startDate"/>
+              <input type="text" class="form-control" name="contacto-{{i}}" id="contacto-{{i}}" formControlName="contacto"/>
             </td>
             <td>
-              <input type="date" class="form-control" name="endDate-{{i}}" id="endDate-{{i}}" formControlName="endDate"/>
+              <input type="text" class="form-control" name="city-{{i}}" id="city-{{i}}" formControlName="city"/>
             </td>
             <td class="text-right">
               <div class="btn-group flex-btn-group-container">
-                <button type="button" class="btn btn-danger btn-sm" (click)="deleteProjectTeamMember(i)">
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteTeacher(i)">
                   <i class="fa fa-times"></i>
                   <span class="d-none d-md-inline"> Delete</span>
                 </button>

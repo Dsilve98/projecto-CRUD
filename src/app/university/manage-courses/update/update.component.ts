@@ -58,16 +58,16 @@ export class UpdateComponent implements OnInit {
     window.history.back();
   }
 
-  addProjectTeamMember(): void {
-    (this.manageCourseForm.get(['projectTeamMembers']) as FormArray).push(this.createProjectTeamMemberFormGroup());
+  addTeacher(): void {
+    (this.manageCourseForm.get(['teachers']) as FormArray).push(this.createTeacherFormGroup());
   }
 
-  deleteProjectTeamMember(index: number): void {
-    (this.manageCourseForm.get(['projectTeamMembers']) as FormArray).removeAt(index);
+  deleteTeacher(index: number): void {
+    (this.manageCourseForm.get(['teachers']) as FormArray).removeAt(index);
   }
 
-  get projectTeamMembersControls(): Array<AbstractControl> {
-    return (this.manageCourseForm.get('projectTeamMembers') as FormArray).controls;
+  get teacherControls(): Array<AbstractControl> {
+    return (this.manageCourseForm.get('teachers') as FormArray).controls;
   }
 
   private createForm() {
@@ -86,42 +86,42 @@ export class UpdateComponent implements OnInit {
     });
   }
 
-  private createProjectTeamMemberFormGroup(): FormGroup {
+  private createTeacherFormGroup(): FormGroup {
     return new FormGroup({
       id: new FormControl(''),
-      memberSpecialization: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      memberName: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-      startDate: new FormControl('', [Validators.required]),
-      endDate: new FormControl('')
+      teacherName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      contacto: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      teacherSpecialization: new FormControl('', [Validators.required]),
+      city: new FormControl('')
     });
   }
 
   private updateForm(courses: ICourses): void {
     this.manageCourseForm.patchValue({
       id: courses.id,
-      NumerodeAlunos: courses.numeroAlunos,
+      NumerodeAlunos: courses.maxStudents,
       Nome: courses.courseName,
     });
-    //this.createCourseTeamMemberFormArray(courses)
-      //.forEach(g => (this.manageProjectsForm.get('projectTeamMembers') as FormArray).push(g));
+    this.createTeacherFormArray(courses)
+      .forEach(g => (this.manageCourseForm.get('teachers') as FormArray).push(g));
   }
 
-/*
-  private createProjectTeamMemberFormArray(courses: ICourses): FormGroup[] {
+
+  private createTeacherFormArray(courses: ICourses): FormGroup[] {
     const fg: FormGroup[] = [];
-    if (!courses.projectTeamMembers) {
-      courses.projectTeamMembers = [];
+    if (!courses.teachers) {
+      courses.teachers = [];
     }
-    courses.projectTeamMembers.forEach(projectTeamMember => {
+    courses.teachers.forEach(teacher => {
       fg.push(this.formBuilder.group({
-          id: new FormControl(projectTeamMember.id),
-          memberSpecialization: new FormControl(projectTeamMember.memberSpecialization, [Validators.required, Validators.maxLength(50)]),
-          memberName: new FormControl(projectTeamMember.memberName, [Validators.required, Validators.maxLength(250)]),
-          startDate: new FormControl(projectTeamMember.startDate, [Validators.required]),
-          endDate: new FormControl(projectTeamMember.endDate)
+          id: new FormControl(teacher.id),
+        teacherSpecialization: new FormControl(teacher.teacherSpecialization, [Validators.required, Validators.maxLength(50)]),
+          teacherName: new FormControl(teacher.teacherName, [Validators.required, Validators.maxLength(50)]),
+          contacto: new FormControl(teacher.contacto, [Validators.required]),
+          city: new FormControl(teacher.city)
         })
       );
     });
     return fg;
-  }*/
+  }
 }

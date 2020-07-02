@@ -29,9 +29,9 @@
           <span *ngIf="manageCertificationForm.controls['expires'].hasError('required')">This field is required</span>
         </div>
       </div>
-      <div class="form-group col-md-6 mb-6">
+      <div class="form-group col-md-2 mb-2">
         <label for="issuingDate">Issuing Date</label>
-        <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('issuingDate').invalid && (manageCertificationForm.get('issuingDate').dirty || manageCertificationForm.get('issuingDate').touched) && manageCertificationForm.controls['issuingDate'].errors ? 'is-invalid' : ''"
+        <input type="date" class="form-control" [ngClass]="manageCertificationForm.get('issuingDate').invalid && (manageCertificationForm.get('issuingDate').dirty || manageCertificationForm.get('issuingDate').touched) && manageCertificationForm.controls['issuingDate'].errors ? 'is-invalid' : ''"
                id="issuingDate" placeholder="Issuing Date" formControlName="issuingDate">
         <div class="invalid-feedback" *ngIf="manageCertificationForm.get('issuingDate').invalid && (manageCertificationForm.get('issuingDate').dirty || manageCertificationForm.get('issuingDate').touched)">
           <span *ngIf="manageCertificationForm.controls['issuingDate'].hasError('required')">This field is required</span>
@@ -39,9 +39,9 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6 mb-6">
+      <div class="form-group col-md-2 mb-2">
         <label for="expireDate">Expire Date</label>
-        <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('expireDate').invalid && (manageCertificationForm.get('expireDate').dirty || manageCertificationForm.get('expireDate').touched) && manageCertificationForm.controls['expireDate'].errors ? 'is-invalid' : ''"
+        <input type="date" class="form-control" [ngClass]="manageCertificationForm.get('expireDate').invalid && (manageCertificationForm.get('expireDate').dirty || manageCertificationForm.get('expireDate').touched) && manageCertificationForm.controls['expireDate'].errors ? 'is-invalid' : ''"
                id="expireDate" placeholder="Expire Date" formControlName="expireDate">
         <div class="invalid-feedback" *ngIf="manageCertificationForm.get('expireDate').invalid && (manageCertificationForm.get('expireDate').dirty || manageCertificationForm.get('expireDate').touched)">
           <span *ngIf="manageCertificationForm.controls['expireDate'].hasError('required')">This field is required</span>
@@ -56,7 +56,7 @@
             <span *ngIf="manageCertificationForm.controls['certCode'].hasError('required')">This field is required</span>
           </div>
         </div>
-        <div class="form-group col-md-2 mb-2">
+        <div class="form-group col-md-5 mb-5">
           <label for="certUrl">Certification Url</label>
           <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('certUrl').invalid && (manageCertificationForm.get('certUrl').dirty || manageCertificationForm.get('certUrl').touched) && manageCertificationForm.controls['certUrl'].errors ? 'is-invalid' : ''"
                  id="certUrl" placeholder="Certification Url" formControlName="certUrl">

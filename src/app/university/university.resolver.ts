@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { ICourses, Teachers } from './university.model';
+import { ICourses, Courses } from './university.model';
 import { UniversityService } from './university.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -26,6 +26,6 @@ export class UniversityResolver implements Resolve<ICourses> {
         this.spinner.hide();
       }), take(1));
     }
-    return of(new Teachers());
+    return of(new Courses());
   }
 }
