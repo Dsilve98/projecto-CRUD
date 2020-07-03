@@ -3,8 +3,8 @@ import { FormControl, FormGroup, FormBuilder, FormArray, Validators, AbstractCon
 import { ActivatedRoute, Router } from '@angular/router';
 //import { Courses } from '../courses.model';
 import { ToastrService } from 'ngx-toastr';
-import { UniversityService } from '../../university.service';
-import {ICourses} from "../../university.model";
+import { CourseService } from '../../course.service';
+import {ICourses} from "../../course.model";
 
 @Component({
   selector: 'app-update',
@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
 
   constructor(    protected activatedRoute: ActivatedRoute,
                   private toastr: ToastrService,
-                  private courseService: UniversityService,
+                  private courseService: CourseService,
                   private formBuilder: FormBuilder,
                   private router: Router) { }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ICourses} from "../../../university/university.model";
+import {ICourses} from "../../course.model";
 
 @Component({
   selector: 'app-detail',

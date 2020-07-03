@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //import { UniversityResolver } from './university.resolver';
-import { ListCoursesComponent } from './list-courses/list-courses.component';
-import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
-import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.component';
-import { ManageTeachersComponent } from './manage-teachers/manage-teachers.component';
-import {UpdateComponent} from "../university/manage-courses/update/update.component";
-import {ProjectResolver} from "../project/project.resolver";
-import {UniversityResolver} from "./university.resolver";
+//import { ListCoursesComponent } from './list-courses/list-courses.component';
+import { ManageCoursesComponent } from './Courses/manage-courses/manage-courses.component';
+import { ManageSubjectsComponent } from './Subjects/manage-subjects/manage-subjects.component';
+import { ManageTeachersComponent } from './Teachers/manage-teachers/manage-teachers.component';
+import {UpdateComponent} from "./Courses/manage-courses/update/update.component";
+import {CourseResolver} from "./Courses/course.resolver";
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'listcourses',
-        component: ListCoursesComponent
-      },
       {
         path: 'managecourses',
         component:  ManageCoursesComponent
@@ -25,7 +20,7 @@ const routes: Routes = [
         path: 'managecourses/new',
         component: UpdateComponent,
         resolve: {
-          courses: UniversityResolver
+          courses: CourseResolver
         }
       },
       {

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { ICourses, Courses } from './university.model';
-import { UniversityService } from './university.service';
+import { ICourses, Courses } from './course.model';
+import { CourseService } from './course.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({ providedIn: 'root' })
-export class UniversityResolver implements Resolve<ICourses> {
-  constructor(private router: Router, private spinner: NgxSpinnerService, private projectService: UniversityService) {}
+export class CourseResolver implements Resolve<ICourses> {
+  constructor(private router: Router, private spinner: NgxSpinnerService, private projectService: CourseService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ICourses> | Observable<never> {
     const id = route.params.id;

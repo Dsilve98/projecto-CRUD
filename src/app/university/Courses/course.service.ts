@@ -4,14 +4,13 @@ import { Observable, Subject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { ICourses } from './university.model';
+import { ICourses } from './course.model';
 import * as firebase from 'firebase';
-import {IProject} from "../project/project.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UniversityService {
+export class CourseService {
 
   private static PROJECT_KEY = 'university';
 
@@ -21,32 +20,30 @@ export class UniversityService {
   }
 
   public getCourseById(coursesId: string): Observable<ICourses> {
-    return this.af.collection<ICourses>(UniversityService.PROJECT_KEY).doc(coursesId).valueChanges();
+    return this.af.collection<ICourses>(CourseService.PROJECT_KEY).doc(coursesId).valueChanges();
   }
 
-    public getCourses(): Observable<Array<ICourses>> {
+  public getCourses(): Observable<Array<ICourses>> {
     return this.angularAuth.user
       .pipe(takeUntil(this.unsubscribe),
         switchMap(user => {
-          return this.af.collection<ICourses>(UniversityService.PROJECT_KEY).valueChanges();
+          return this.af.collection<ICourses>(CourseService.PROJECT_KEY).valueChanges();
         }));
   }
 
-  public async createCourse(project: IProject): Promise<void> {
+  public async createCourse(course: ICourses): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    project.id = this.af.createId();
-    project.projectTeamMembers.forEach(ptm => ptm.id = this.af.createId());
-    return await this.af.collection(UniversityService.PROJECT_KEY).doc(project.id).set(project);
+    course.id = this.af.createId();
+    return await this.af.collection(CourseService.PROJECT_KEY).doc(course.id).set(course);
   }
 
-  public async updateCourse(project: IProject): Promise<void> {
+  public async updateCourse(course: ICourses): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    project.projectTeamMembers.filter(ptm => !ptm.id).forEach(ptmFiltered => ptmFiltered.id = this.af.createId());
-    return await this.af.collection(UniversityService.PROJECT_KEY).doc(project.id).set(project);
+    return await this.af.collection(CourseService.PROJECT_KEY).doc(course.id).set(course);
   }
 
   public async deleteCourse(projectId: string): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(UniversityService.PROJECT_KEY).doc(projectId).delete();
+    return await this.af.collection(CourseService.PROJECT_KEY).doc(projectId).delete();
   }
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {IProject} from "../../project/project.model";
-import {ICourses} from "../university.model";
-import {ManageProjectsDeleteDialogComponent} from "../../project/manage-projects/manage-projects-delete-dialog.component";
+import {ICourses} from "../course.model";
+import {ManageProjectsDeleteDialogComponent} from "../../../project/manage-projects/manage-projects-delete-dialog.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
-import {UniversityService} from "../../university/university.service";
+import {CourseService} from "../course.service";
 
 @Component({
   selector: 'app-manage-courses',
@@ -14,7 +13,7 @@ import {UniversityService} from "../../university/university.service";
 export class ManageCoursesComponent implements OnInit {
   courses?: ICourses[] = [];
 
-  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  projectService: UniversityService) { }
+  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  projectService: CourseService) { }
 
   ngOnInit(): void {
   }
