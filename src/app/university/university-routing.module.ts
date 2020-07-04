@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-//import { UniversityResolver } from './university.resolver';
-//import { ListCoursesComponent } from './list-courses/list-courses.component';
 import { ManageCoursesComponent } from './Courses/manage-courses/manage-courses.component';
 import { ManageSubjectsComponent } from './Subjects/manage-subjects/manage-subjects.component';
 import { ManageTeachersComponent } from './Teachers/manage-teachers/manage-teachers.component';
 import {UpdateComponent} from "./Courses/manage-courses/update/update.component";
 import {CourseResolver} from "./Courses/course.resolver";
+import {UpdateComponent2} from "./Subjects/manage-subjects/update/update.component";
+import {SubjectResolver} from "./Subjects/subject.resolver";
 
 const routes: Routes = [
   {
@@ -26,6 +26,13 @@ const routes: Routes = [
       {
         path: 'managesubjects',
         component:  ManageSubjectsComponent
+      },
+      {
+        path: 'managesubjects/new',
+        component: UpdateComponent2,
+        resolve: {
+          courses: SubjectResolver
+        }
       },
       {
         path: 'manageteachers',

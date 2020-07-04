@@ -9,11 +9,17 @@ import { ManageTeachersComponent } from './Teachers/manage-teachers/manage-teach
 import { DeleteComponent } from './Courses/manage-courses/delete/delete.component';
 import { DetailComponent } from './Courses/manage-courses/detail/detail.component';
 import { UpdateComponent } from './Courses/manage-courses/update/update.component';
+import { DeleteComponent2 } from './Subjects/manage-subjects/delete/delete.component';
+import { DetailComponent2 } from './Subjects/manage-subjects/detail/detail.component';
+import { UpdateComponent2 } from './Subjects/manage-subjects/update/update.component';
+import { DeleteComponent3 } from './Teachers/manage-teachers/delete/delete.component';
+import { DetailComponent3 } from './Teachers/manage-teachers/detail/detail.component';
+import { UpdateComponent3 } from './Teachers/manage-teachers/update/update.component';
 
 
 
 @NgModule({
-  declarations: [ManageCoursesComponent, ManageSubjectsComponent, ManageTeachersComponent, DeleteComponent, DetailComponent, UpdateComponent],
+  declarations: [UpdateComponent3, DetailComponent3, DeleteComponent3, UpdateComponent2, DetailComponent2, DeleteComponent2, ManageCoursesComponent, ManageSubjectsComponent, ManageTeachersComponent, DeleteComponent, DetailComponent, UpdateComponent],
   imports: [
     CommonModule,
     SharedModule,
