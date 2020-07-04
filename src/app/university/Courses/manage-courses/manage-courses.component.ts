@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ICourses} from "../course.model";
-import {ManageProjectsDeleteDialogComponent} from "../../../project/manage-projects/manage-projects-delete-dialog.component";
+import {DeleteComponent} from "./delete/delete.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
 import {CourseService} from "../course.service";
+import {ITeacher} from "../../Teachers/teachers.model";
 
 @Component({
   selector: 'app-manage-courses',
@@ -13,9 +14,16 @@ import {CourseService} from "../course.service";
 export class ManageCoursesComponent implements OnInit {
   courses?: ICourses[] = [];
 
-  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  projectService: CourseService) { }
+  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  courseService: CourseService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    this.courseService.getCourses().subscribe((data: ITeacher[]) => {
+      this.spinner.hide();
+      this.courses = data;
+    }, err => {
+      this.spinner.hide();
+    });
   }
 
   trackId(index: number, item: ICourses): number {
@@ -24,8 +32,8 @@ export class ManageCoursesComponent implements OnInit {
   }
 
   delete(course: ICourses): void {
-    const modalRef = this.modalService.open(ManageProjectsDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.project = course;
+    const modalRef = this.modalService.open(DeleteComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
   }
 
 }

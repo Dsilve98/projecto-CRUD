@@ -35,7 +35,7 @@ export class UpdateComponent implements OnInit {
       this.courseService.createCourse(this.manageCourseForm.getRawValue()).then(data => {
           this.isSaving = false;
           this.toastr.success('New Course successfully created', 'Success');
-          this.router.navigate(['/managecourse']);
+          this.router.navigate(['/managecourses']);
         },
         err => {
           this.isSaving = false;
@@ -73,16 +73,14 @@ export class UpdateComponent implements OnInit {
   private createForm() {
     this.manageCourseForm = new FormGroup({
       id: new FormControl(''),
-      projectName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      projectAlias: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-      companyName: new FormControl('', [Validators.required]),
-      companyAddress: new FormControl('', [Validators.required]),
-      state: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      zip: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
-      personnelProject: new FormControl(false, [Validators.required]),
-      formRecaptcha: new FormControl(null, [Validators.required]),
-      projectTeamMembers: this.formBuilder.array([]),
+      courseName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      maxStudents: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      average: new FormControl('', [Validators.required]),
+      examDate: new FormControl('', [Validators.required]),
+      credits: new FormControl('', [Validators.required]),
+      numberHalfs: new FormControl('', [Validators.required]),
+      area: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
+      teachers: this.formBuilder.array([]),
     });
   }
 
@@ -99,8 +97,13 @@ export class UpdateComponent implements OnInit {
   private updateForm(courses: ICourses): void {
     this.manageCourseForm.patchValue({
       id: courses.id,
-      NumerodeAlunos: courses.maxStudents,
-      Nome: courses.courseName,
+      courseName: courses.maxStudents,
+      maxStudents: courses.courseName,
+      average: courses.average,
+      examDate: courses.examDate,
+      credits: courses.credits,
+      numberHalfs: courses.numberHalfs,
+      area: courses.area,
     });
     this.createTeacherFormArray(courses)
       .forEach(g => (this.manageCourseForm.get('teachers') as FormArray).push(g));

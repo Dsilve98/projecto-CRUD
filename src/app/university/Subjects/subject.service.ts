@@ -12,38 +12,38 @@ import * as firebase from 'firebase';
 })
 export class SubjectService {
 
-  private static PROJECT_KEY = 'university';
+  private static SUBJECT_KEY = 'subject';
 
   private unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(public af: AngularFirestore, public db: AngularFireDatabase, public angularAuth: AngularFireAuth) {
   }
 
-  public getCourseById(coursesId: string): Observable<ISubjects> {
-    return this.af.collection<ISubjects>(SubjectService.PROJECT_KEY).doc(coursesId).valueChanges();
+  public getSubjectById(subjectsId: string): Observable<ISubjects> {
+    return this.af.collection<ISubjects>(SubjectService.SUBJECT_KEY).doc(subjectsId).valueChanges();
   }
 
-  public getCourses(): Observable<Array<ISubjects>> {
+  public getSubjects(): Observable<Array<ISubjects>> {
     return this.angularAuth.user
       .pipe(takeUntil(this.unsubscribe),
         switchMap(user => {
-          return this.af.collection<ISubjects>(SubjectService.PROJECT_KEY).valueChanges();
+          return this.af.collection<ISubjects>(SubjectService.SUBJECT_KEY).valueChanges();
         }));
   }
 
-  public async createCourse(course: ISubjects): Promise<void> {
+  public async createSubject(subject: ISubjects): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    course.id = this.af.createId();
-    return await this.af.collection(SubjectService.PROJECT_KEY).doc(course.id).set(course);
+    subject.id = this.af.createId();
+    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id).set(subject);
   }
 
-  public async updateCourse(course: ISubjects): Promise<void> {
+  public async updateSubject(subject: ISubjects): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(SubjectService.PROJECT_KEY).doc(course.id).set(course);
+    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id).set(subject);
   }
 
-  public async deleteCourse(projectId: string): Promise<void> {
+  public async deleteSubject(subjectId: string): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(SubjectService.PROJECT_KEY).doc(projectId).delete();
+    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subjectId).delete();
   }
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ICourses} from "../../Courses/course.model";
-import {DeleteComponent2} from "../manage-subjects/delete/delete.component";
+import {DeleteComponent2} from "./delete/delete.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
-import {CourseService} from "../../Courses/course.service";
+import {SubjectService} from "../subject.service";
 import {ISubjects} from "../subjects.model";
 
 @Component({
@@ -13,11 +12,19 @@ import {ISubjects} from "../subjects.model";
 })
 export class ManageSubjectsComponent implements OnInit {
   subjects?: ISubjects[] = [];
-  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  projectService: CourseService) { }
+  constructor(protected modalService: NgbModal, private spinner: NgxSpinnerService, private  subjectService: SubjectService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    this.subjectService.getSubjects().subscribe((data: ISubjects[]) => {
+      this.spinner.hide();
+      this.subjects = data;
+    }, err => {
+      this.spinner.hide();
+    });
   }
-  trackId(index: number, item: ICourses): number {
+
+  trackId(index: number, item: ISubjects): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return Number(item.id);
   }

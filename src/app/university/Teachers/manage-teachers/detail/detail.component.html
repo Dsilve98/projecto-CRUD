@@ -1,1 +1,33 @@
-<p>detail works!</p>
+<div class="row justify-content-center panel-container">
+  <div class="col-8">
+    <div *ngIf="teachers">
+      <h2><span>Teachers</span> {{ teachers.id }}</h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ teachers.id }}</span>
+        </dd>
+        <dt><span >Teacher Name</span></dt>
+        <dd>
+          <span>{{ teachers.teacherName}}</span>
+        </dd>
+        <dt><span >Contact</span></dt>
+        <dd>
+          <span>{{ teachers.contacto }}</span>
+        </dd>
+        <dt><span >Teacher Specialization</span></dt>
+        <dd>
+          <span>{{ teachers.teacherSpecialization }}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+          <span>{{ teachers.city }}</span>
+        </dd>
+      </dl>
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -8,13 +8,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({ providedIn: 'root' })
 export class SubjectResolver implements Resolve<ISubjects> {
-  constructor(private router: Router, private spinner: NgxSpinnerService, private projectService: SubjectService) {}
+  constructor(private router: Router, private spinner: NgxSpinnerService, private subjectService: SubjectService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ISubjects> | Observable<never> {
     const id = route.params.id;
     if (id) {
       this.spinner.show();
-      return this.projectService.getCourseById(id).pipe(map((data: ISubjects) => {
+      return this.subjectService.getSubjectById(id).pipe(map((data: ISubjects) => {
         this.spinner.hide();
         if (data) {
           return data;

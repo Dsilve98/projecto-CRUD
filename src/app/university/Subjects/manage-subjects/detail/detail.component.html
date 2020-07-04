@@ -1,1 +1,41 @@
-<p>detail works!</p>
+<div class="row justify-content-center panel-container">
+  <div class="col-8">
+    <div *ngIf="subjects">
+      <h2><span>Academic Studie</span> {{ subjects.id }}</h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ subjects.id }}</span>
+        </dd>
+        <dt><span >Credits</span></dt>
+        <dd>
+          <span>{{ subjects.creditos}}</span>
+        </dd>
+        <dt><span >Subject Name</span></dt>
+        <dd>
+          <span>{{ subjects.subjectName }}</span>
+        </dd>
+        <dt><span >Code</span></dt>
+        <dd>
+          <span>{{ subjects.code }}</span>
+        </dd>
+        <dt><span>Area</span></dt>
+        <dd>
+          <span>{{ subjects.area }}</span>
+        </dd>
+        <dt><span>Horas Semanais</span></dt>
+        <dd>
+          <span>{{ subjects.horasSemanais }}</span>
+        </dd>
+        <dt><span>Course</span></dt>
+        <dd>
+          <span>{{ subjects.course }}</span>
+        </dd>
+      </dl>
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+    </div>
+  </div>
+</div>

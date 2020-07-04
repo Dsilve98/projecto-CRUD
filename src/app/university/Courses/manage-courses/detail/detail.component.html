@@ -1,7 +1,7 @@
 <div class="row justify-content-center panel-container">
   <div class="col-8">
     <div *ngIf="courses">
-      <h2><span>Project</span> {{ courses.id }}</h2>
+      <h2><span>Course</span> {{ courses.id }}</h2>
       <hr>
       <dl class="row-md entity-details">
         <dt><span >ID</span></dt>
@@ -40,7 +40,7 @@
         <dd>
           <span>{{ courses.teachers }}</span>
         </dd>
-      </dl>>
+      </dl>
       <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
         <i class="fa fa-arrow-left"></i><span>Back</span>
       </button>

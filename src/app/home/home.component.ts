@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.projects$ = this.projectService.loadAllTeachers();
+  //  this.projects$ = this.projectService.loadAllTeachers();
 
     this.lastProject = this.projects$.pipe(
       map(projects => projects.filter(

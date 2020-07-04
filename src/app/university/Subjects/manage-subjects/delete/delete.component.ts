@@ -16,13 +16,18 @@ export class DeleteComponent2 implements OnInit {
 
   ngOnInit(): void {
   }
+
+  clear(): void {
+    this.activeModal.dismiss();
+  }
+
   confirmDelete(id: string): void {
-    this.subjecttService.deleteCourse(id).then(() => {
+    this.subjecttService.deleteSubject(id).then(() => {
         this.activeModal.close();
-        this.toastr.success('Project successfully deleted', 'Suceess');
+        this.toastr.success('Subject successfully deleted', 'Suceess');
       },
       err => {
-        this.toastr.error('An error occurred while deleting project with ID: ' + id , 'Error');
+        this.toastr.error('An error occurred while deleting subject with ID: ' + id , 'Error');
       });
   }
 }
