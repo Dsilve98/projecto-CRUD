@@ -28,35 +28,35 @@ const routes: Routes = [
         path: 'manageacademicstudies/:id/edit',
         component: UpdateComponent,
         resolve: {
-          project: AcademicResolver
+          academic: AcademicResolver
         }
       },
       {
         path: 'manageacademicstudies/:id/view',
         component: DetailComponent,
         resolve: {
-          project: AcademicResolver
+          academic: AcademicResolver
         }
       },
       {
         path: 'managecertifications/new',
         component: UpdateComponent2,
         resolve: {
-          academic: CertificationResolver
+          certification: CertificationResolver
         }
       },
       {
         path: 'managecertifications/:id/edit',
         component: UpdateComponent2,
         resolve: {
-          project: CertificationResolver
+          certification: CertificationResolver
         }
       },
       {
         path: 'managecertifications/:id/view',
         component: DetailComponent2,
         resolve: {
-          project: CertificationResolver
+          certification: CertificationResolver
         }
       },
       {
