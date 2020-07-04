@@ -10,8 +10,10 @@ import { HomeModule } from './home/home.module';
 import { ProjectModule } from './project/project.module';
 import { EducationModule } from './education/education.module';
 import { UniversityModule } from './university/university.module';
+import { ContactsModule } from './contacts/contacts.module';
+
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -35,7 +37,7 @@ export const firebaseConfig = {
   declarations: [
     FooterComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ export const firebaseConfig = {
     ProjectModule,
     EducationModule,
     UniversityModule,
+    ContactsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true

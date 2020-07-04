@@ -37,7 +37,24 @@ Cores da Lusofona
   color: #476E8D;
 }
 
+.carousel-caption-luso {
 
+  position: absolute;
+  //right: 0%;
+  //bottom: 20px;
+  left: 12%;
+  top: 35%;
+  //z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.carousel-font-luso{
+  font-size: 6em;
+}
 /*------------------------------Tamanho e cor dos botões------------------------------------*/
 
 .btn-luso-light {
@@ -47,8 +64,8 @@ Cores da Lusofona
 }
 .btn-luso-light:hover {
   color: #fff;
-  background-color: #356082;
-  border-color: #335b7b;
+  background-color: #305876;
+  border-color: #2d546f;
 }
 
 /*.icon-luso span{

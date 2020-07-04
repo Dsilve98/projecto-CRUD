@@ -9,21 +9,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <!--------------------------Home--------------------------------->
-      <li class="nav-item active">
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" [routerLink]="['/']">
           <i class="fa fa-home"></i>
           <span>Home</span>
         </a>
       </li>
       <!-------------------------Profile-------------------------------->
-      <li class="nav-item">
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" href="#">
           <i class="fa fa-id-card-o"></i>
           <span>Profile</span>
         </a>
       </li>
       <!-------------------------Projects------------------------------->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link dropdown-toggle" href="#" id="projectNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-gears fa-lg"></i>
           <span>Projects</span>
@@ -36,7 +36,7 @@
         </div>
       </li>
       <!------------------------Education------------------------------>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link dropdown-toggle" href="#" id="educationNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-graduation-cap"></i>
           <span>Education</span>
@@ -47,7 +47,7 @@
         </div>
       </li>
       <!--------------------------University-------------------------->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link dropdown-toggle" href="#" id="universityNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-university"></i>
           <span>University</span>
@@ -61,11 +61,9 @@
         </div>
       </li>
       <!--------------------------Contacts-------------------------->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fa fa-envelope-o">
-              <span class="badge badge-danger">11</span>
-          </i>
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/contacts']">
+          <i class="fa fa-envelope-o"></i>
           <span>Contacts</span>
         </a>
       </li>
@@ -78,7 +76,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fa fa-sign-out"></i>
-         <span>Logout</span>
+          <span>Logout</span>
         </a>
       </li>
     </ul>
