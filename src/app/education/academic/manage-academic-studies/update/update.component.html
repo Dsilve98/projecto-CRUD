@@ -1,12 +1,13 @@
 <div class="panel-container ">
   <div class="row">
+
     <div class="col-3">
     </div>
     <div class="col-6">
       <form [formGroup]="manageAcademicForm" (ngSubmit)="saveAcademics()">
 
-        <div class="form-row justify-content-center">
-          <div class="form-group col-md-4 mb-4">
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-6">
             <label for="inputEducationalInstitution">Educational Instituion</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('educationalInstitution').invalid && (manageAcademicForm.get('educationalInstitution').dirty || manageAcademicForm.get('educationalInstitution').touched) && manageAcademicForm.controls['educationalInstitution'].errors ? 'is-invalid' : ''"
                    id="inputEducationalInstitution" placeholder="Educational Institution" formControlName="educationalInstitution">
@@ -16,7 +17,7 @@
             </div>
           </div>
 
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="inputformation">Formation</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('formation').invalid && (manageAcademicForm.get('formation').dirty || manageAcademicForm.get('formation').touched) && manageAcademicForm.controls['formation'].errors ? 'is-invalid' : ''"
                    id="inputformation" placeholder="Formation" formControlName="formation">
@@ -28,7 +29,7 @@
         </div>
 
         <div class="form-row justify-content-center">
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="fieldOfStudy">Field of Study</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('fieldOfStudy').invalid && (manageAcademicForm.get('fieldOfStudy').dirty || manageAcademicForm.get('fieldOfStudy').touched) && manageAcademicForm.controls['fieldOfStudy'].errors ? 'is-invalid' : ''"
                    id="fieldOfStudy" placeholder="Field of Study" formControlName="fieldOfStudy">
@@ -38,7 +39,7 @@
             </div>
           </div>
 
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="inputGrade">Grade</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('grade').invalid && (manageAcademicForm.get('grade').dirty || manageAcademicForm.get('grade').touched) && manageAcademicForm.controls['grade'].errors ? 'is-invalid' : ''"
                    id="inputGrade" placeholder="Grade" formControlName="grade">
@@ -50,7 +51,7 @@
         </div>
 
         <div class="form-row justify-content-center">
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="inputActivities">Activities</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('activities').invalid && (manageAcademicForm.get('activities').dirty || manageAcademicForm.get('activities').touched) && manageAcademicForm.controls['activities'].errors ? 'is-invalid' : ''"
                    id="inputActivities" placeholder="Activities" formControlName="activities">
@@ -60,7 +61,7 @@
             </div>
           </div>
 
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="inputDescription">Description</label>
             <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('description').invalid && (manageAcademicForm.get('description').dirty || manageAcademicForm.get('description').touched) && manageAcademicForm.controls['description'].errors ? 'is-invalid' : ''"
                    id="inputDescription" placeholder="Description" formControlName="description">
@@ -71,7 +72,7 @@
           </div>
         </div>
 
-        <div class="form-row justify-content-center">
+        <div class="form-row">
           <div class="form-group col-md-3 mb-3">
             <label for="inputStartDate">Start Date</label>
             <input type="date" class="form-control" [ngClass]="manageAcademicForm.get('startDate').invalid && (manageAcademicForm.get('startDate').dirty || manageAcademicForm.get('startDate').touched) && manageAcademicForm.controls['startDate'].errors ? 'is-invalid' : ''"
@@ -91,6 +92,8 @@
           </div>
         </div>
 
+        <hr>
+        <br/>
         <div class="form-row justify-content-center">
           <div class="row margin-top-10">
             <div class="col-12">

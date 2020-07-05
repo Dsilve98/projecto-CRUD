@@ -14,11 +14,13 @@
     <div class="row">
       <div class="col-md-4" *ngIf="totalProjects.length > 0 ">
         <h2 class="card-title">{{ lastProject.projectName}}</h2>
-        <p> {{ lastProject.companyName }} {{ lastProject.city }} {{ lastProject.city }}</p>
+        <p> {{ lastProject.companyName }} {{ lastProject.city }}</p>
+        <p> {{ lastProject.companyAddress }} {{ lastProject.zip }}</p>
         <p><a class="btn btn-luso-light " href="#" role="button">View details »</a></p>
       </div>
       <div class="col-md-4" *ngIf="totalAcademics.length > 0 ">
         <h2 class="card-title">{{ lastAcademic.educationalInstitution}}</h2>
+        <p> {{ lastAcademic.description }} {{ lastAcademic.activities }} {{ lastAcademic.formation }}</p>
         <p> {{ lastAcademic.description }} {{ lastAcademic.activities }} {{ lastAcademic.formation }}</p>
         <p><a class="btn btn-luso-light" href="#" role="button">View details »</a></p>
       </div>

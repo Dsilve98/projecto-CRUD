@@ -6,7 +6,7 @@
       <form [formGroup]="manageCertificationForm" (ngSubmit)="saveCertifications()">
 
         <div class="form-row justify-content-center">
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="certName">Certification Name</label>
             <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('certName').invalid && (manageCertificationForm.get('certName').dirty || manageCertificationForm.get('certName').touched) && manageCertificationForm.controls['certName'].errors ? 'is-invalid' : ''"
                    id="certName" placeholder="Certification Name" formControlName="certName">
@@ -15,7 +15,7 @@
               <span *ngIf="manageCertificationForm.controls['certName'].hasError('maxlength')">Max length of this field is 50 characters</span>
             </div>
           </div>
-          <div class="form-group col-md-4 mb-4">
+          <div class="form-group col-md-6 mb-6">
             <label for="issuingOrg">Issuing Organization</label>
             <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('issuingOrg').invalid && (manageCertificationForm.get('issuingOrg').dirty || manageCertificationForm.get('issuingOrg').touched) && manageCertificationForm.controls['issuingOrg'].errors ? 'is-invalid' : ''"
                    id="issuingOrg" placeholder="Issuing Organization" formControlName="issuingOrg">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-row justify-content-center">
-            <div class="form-group col-md-4 mb-4">
+            <div class="form-group col-md-6 mb-6">
               <label for="certCode">Certification Code</label>
               <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('certCode').invalid && (manageCertificationForm.get('certCode').dirty || manageCertificationForm.get('certCode').touched) && manageCertificationForm.controls['certCode'].errors ? 'is-invalid' : ''"
                      id="certCode" placeholder="Certification Code" formControlName="certCode">
@@ -35,7 +35,7 @@
                 <span *ngIf="manageCertificationForm.controls['certCode'].hasError('required')">This field is required</span>
               </div>
             </div>
-            <div class="form-group col-md-4 mb-4">
+            <div class="form-group col-md-6 mb-6">
               <label for="certUrl">Certification Url</label>
               <input type="text" class="form-control" [ngClass]="manageCertificationForm.get('certUrl').invalid && (manageCertificationForm.get('certUrl').dirty || manageCertificationForm.get('certUrl').touched) && manageCertificationForm.controls['certUrl'].errors ? 'is-invalid' : ''"
                      id="certUrl" placeholder="Certification Url" formControlName="certUrl">
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="form-row justify-content-center">
+        <div class="form-row">
           <div class="form-group col-md-3 mb-3">
             <label for="issuingDate">Issuing Date</label>
             <input type="date" class="form-control" [ngClass]="manageCertificationForm.get('issuingDate').invalid && (manageCertificationForm.get('issuingDate').dirty || manageCertificationForm.get('issuingDate').touched) && manageCertificationForm.controls['issuingDate'].errors ? 'is-invalid' : ''"
@@ -64,6 +64,7 @@
           </div>
         </div>
 
+
         <div class="form-row justify-content-center">
           <div class="form-group">
             <div class="form-check">
@@ -74,7 +75,8 @@
             </div>
           </div>
         </div>
-
+        <hr>
+        <br/>
         <div class="form-row justify-content-center">
           <div class="row margin-top-10">
             <div class="col-12">
