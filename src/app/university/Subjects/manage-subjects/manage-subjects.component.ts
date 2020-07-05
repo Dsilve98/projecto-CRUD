@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DeleteComponent2} from "./delete/delete.component";
+import {ManageSubjectsDeleteComponent} from "./delete/delete.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
 import {SubjectService} from "../subject.service";
@@ -30,7 +30,7 @@ export class ManageSubjectsComponent implements OnInit {
   }
 
   delete(subjects: ISubjects): void {
-    const modalRef = this.modalService.open(DeleteComponent2, { size: 'lg', backdrop: 'static' });
+    const modalRef = this.modalService.open(ManageSubjectsDeleteComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.subject = subjects;
   }
 }

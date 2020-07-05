@@ -7,7 +7,7 @@ import {ICourses} from "../../course.model";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class ManageCoursesDetailComponent implements OnInit {
 
   courses: ICourses | null = null;
 
@@ -22,5 +22,4 @@ export class DetailComponent implements OnInit {
   previousState(): void {
     window.history.back();
   }
-
 }

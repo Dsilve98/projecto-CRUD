@@ -23,21 +23,22 @@
         <th scope="col" ><span>Expire Date</span></th>
         <th scope="col" ><span>Issuing Date</span></th>
         <th scope="col" ><span>Issuing Organization</span></th>
-        <th scope="col" ><span>Expires</span></th>
+        <th class="text-center" scope="col" ><span>Expires</span></th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let certification of certifications ;trackBy: trackId">
         <td><a [routerLink]="[certification.id, 'view']">{{ certification.id }}</a></td>
-        <td>{{ certification.id }}</td>
         <td>{{ certification.certCode }}</td>
         <td>{{ certification.certName }}</td>
         <td>{{ certification.certUrl }}</td>
         <td>{{ certification.expireDate }}</td>
         <td>{{ certification.issuingDate }}</td>
         <td>{{ certification.issuingOrg }}</td>
-        <td>{{ certification.expires }}</td>
+        <td class="text-center">
+          <i class="fa" [ngClass]="(certification.expires) ? 'fa-check' : 'fa-times'"></i>
+        </td>
         <td class="text-right">
           <div class="btn-group">
             <button type="submit" [routerLink]="[certification.id, 'view']" class="btn btn-info btn-sm">

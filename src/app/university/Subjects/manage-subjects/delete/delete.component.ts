@@ -9,7 +9,7 @@ import {SubjectService} from "../../subject.service";
   templateUrl: './delete.component.html',
   styleUrls: ['./delete.component.scss']
 })
-export class DeleteComponent2 implements OnInit {
+export class ManageSubjectsDeleteComponent implements OnInit {
   subject?: ISubjects;
 
   constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private subjecttService: SubjectService) { }

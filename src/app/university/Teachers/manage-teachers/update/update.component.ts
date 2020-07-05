@@ -10,7 +10,7 @@ import {ITeacher} from "../../teachers.model";
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent3 implements OnInit {
+export class ManageTeachersUpdateComponent implements OnInit {
 
   manageTeacherForm: FormGroup;
   isSaving: boolean;
@@ -62,9 +62,10 @@ export class UpdateComponent3 implements OnInit {
     this.manageTeacherForm = new FormGroup({
       id: new FormControl(''),
       teacherName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      contacto: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      contacto: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       teacherSpecialization: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
       formRecaptcha: new FormControl(null, [Validators.required]),
     });
   }
@@ -75,6 +76,7 @@ export class UpdateComponent3 implements OnInit {
       teacherName: teacher.teacherName,
       contacto: teacher.contacto,
       teacherSpecialization: teacher.teacherSpecialization,
+      email: teacher.email,
       city: teacher.city,
     });
   }

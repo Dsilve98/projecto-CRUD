@@ -1,40 +1,40 @@
 <div class="row justify-content-center panel-container">
   <div class="col-8">
     <div *ngIf="subjects">
-      <h2><span>Academic Studie</span> {{ subjects.id }}</h2>
+      <h2><span>Project</span> {{ subjects.id }}</h2>
       <hr>
       <dl class="row-md entity-details">
         <dt><span >ID</span></dt>
         <dd>
           <span>{{ subjects.id }}</span>
         </dd>
-        <dt><span >Credits</span></dt>
-        <dd>
-          <span>{{ subjects.creditos}}</span>
-        </dd>
-        <dt><span >Subject Name</span></dt>
+        <dt><span >Project Name</span></dt>
         <dd>
           <span>{{ subjects.subjectName }}</span>
         </dd>
-        <dt><span >Code</span></dt>
+        <dt><span >Project Alias</span></dt>
         <dd>
           <span>{{ subjects.code }}</span>
         </dd>
-        <dt><span>Area</span></dt>
+        <dt><span >Company Name</span></dt>
         <dd>
           <span>{{ subjects.area }}</span>
         </dd>
-        <dt><span>Horas Semanais</span></dt>
+        <dt><span>Company Address</span></dt>
         <dd>
           <span>{{ subjects.horasSemanais }}</span>
         </dd>
-        <dt><span>Course</span></dt>
+        <dt><span>City</span></dt>
         <dd>
-          <span>{{ subjects.course }}</span>
+          <span>{{ subjects.creditos }}</span>
         </dd>
       </dl>
       <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
         <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/project/managesubjects', subjects.id, 'edit']" class="btn btn-primary">
+        <i class="fa fa-pencil"></i><span>Edit</span>
       </button>
     </div>
   </div>

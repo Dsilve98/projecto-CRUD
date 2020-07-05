@@ -9,7 +9,7 @@ import {ICourses} from "../../course.model";
   templateUrl: './delete.component.html',
   styleUrls: ['./delete.component.scss']
 })
-export class DeleteComponent implements OnInit {
+export class ManageCoursesDeleteComponent implements OnInit {
   course?: ICourses
   constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private projectService: CourseService) { }
 

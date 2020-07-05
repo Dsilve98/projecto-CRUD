@@ -4,6 +4,7 @@ export interface ITeacher {
   contacto?: string;
   teacherSpecialization?: string;
   city?: string;
+  email?: string;
 }
 
 export class Teacher implements ITeacher {
@@ -12,6 +13,7 @@ export class Teacher implements ITeacher {
     public teacherName?: string,
     public contacto?: string,
     public teacherSpecialization?: string,
-    public city?: string
+    public city?: string,
+    public email?: string
   ){}
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ICourses} from "../course.model";
-import {DeleteComponent} from "./delete/delete.component";
+import {ManageCoursesDeleteComponent} from "./delete/delete.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
 import {CourseService} from "../course.service";
@@ -32,7 +32,7 @@ export class ManageCoursesComponent implements OnInit {
   }
 
   delete(course: ICourses): void {
-    const modalRef = this.modalService.open(DeleteComponent, { size: 'lg', backdrop: 'static' });
+    const modalRef = this.modalService.open(ManageCoursesDeleteComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = course;
   }
 

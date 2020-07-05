@@ -3,7 +3,7 @@ import {ITeacher} from "../teachers.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgxSpinnerService} from "ngx-spinner";
 import {TeacherService} from "../teacher.service";
-import {DeleteComponent3} from "./delete/delete.component";
+import {ManageTeachersDeleteComponent} from "./delete/delete.component";
 
 @Component({
   selector: 'app-manage-teachers',
@@ -31,7 +31,7 @@ export class ManageTeachersComponent implements OnInit {
     }
 
     delete(teacher: ITeacher): void {
-      const modalRef = this.modalService.open(DeleteComponent3, { size: 'lg', backdrop: 'static' });
+      const modalRef = this.modalService.open(ManageTeachersDeleteComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.teacher = teacher;
   }
 }

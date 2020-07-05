@@ -42,8 +42,8 @@ export class CourseService {
     return await this.af.collection(CourseService.COURSE_KEY).doc(course.id).set(course);
   }
 
-  public async deleteCourse(projectId: string): Promise<void> {
+  public async deleteCourse(courseId: string): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(CourseService.COURSE_KEY).doc(projectId).delete();
+    return await this.af.collection(CourseService.COURSE_KEY).doc(courseId).delete();
   }
 }

@@ -5,13 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from '../../course.service';
 import {ICourses} from "../../course.model";
+import {ITeacher} from "../../../Teachers/teachers.model";
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit {
+export class ManageCoursesUpdateComponent implements OnInit {
 
   manageCourseForm: FormGroup;
   isSaving: boolean;
@@ -26,6 +27,9 @@ export class UpdateComponent implements OnInit {
     this.createForm();
     this.activatedRoute.data.subscribe(({ courses }) => {
       this.updateForm(courses);
+    });
+    this.activatedRoute.data.subscribe(({ teachers }) => {
+      this.getTeacher(teachers);
     });
   }
 
@@ -105,18 +109,26 @@ export class UpdateComponent implements OnInit {
       numberHalfs: courses.numberHalfs,
       area: courses.area,
     });
-    this.createTeacherFormArray(courses)
-      .forEach(g => (this.manageCourseForm.get('teachers') as FormArray).push(g));
+  }
+
+  private getTeacher(teacher: ITeacher): void {
+    this.manageCourseForm.patchValue({
+      id: teacher.id,
+      teacherName: teacher.teacherName,
+      contacto: teacher.contacto,
+      city: teacher.city,
+      teacherSpecialization: teacher.teacherSpecialization,
+    });
   }
 
 
-  private createTeacherFormArray(courses: ICourses): FormGroup[] {
+  private Teacher(courses: ICourses): FormGroup[] {
     const fg: FormGroup[] = [];
     if (!courses.teachers) {
       courses.teachers = [];
     }
     courses.teachers.forEach(teacher => {
-      fg.push(this.formBuilder.group({
+      (this.formBuilder.group({
           id: new FormControl(teacher.id),
         teacherSpecialization: new FormControl(teacher.teacherSpecialization, [Validators.required, Validators.maxLength(50)]),
           teacherName: new FormControl(teacher.teacherName, [Validators.required, Validators.maxLength(50)]),

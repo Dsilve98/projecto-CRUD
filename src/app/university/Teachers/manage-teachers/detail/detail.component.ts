@@ -7,7 +7,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent3 implements OnInit {
+export class ManageTeachersDetailComponent implements OnInit {
 
   teachers: ITeacher | null = null;
 

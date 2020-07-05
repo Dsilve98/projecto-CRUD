@@ -60,12 +60,12 @@ export class UpdateComponent2 implements OnInit {
       this.manageCertificationForm = new FormGroup({
         id: new FormControl(''),
         certName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-        issuingOrg: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-        expires: new FormControl('', [Validators.required]),
+        issuingOrg: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+        expires: new FormControl(false, [Validators.required]),
         issuingDate: new FormControl('', [Validators.required]),
         expireDate: new FormControl('', [Validators.required]),
         certCode: new FormControl('', [Validators.required]),
-        certUrl: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
+        certUrl: new FormControl('', [Validators.required,  Validators.maxLength(50)]),
       });
     }
 
@@ -75,7 +75,7 @@ export class UpdateComponent2 implements OnInit {
         id: certification.id,
         certName: certification.certName,
         issuingOrg: certification.issuingOrg,
-        expires: certification.expires,
+        expires: !certification.expires ? false : certification.expires,
         issuingDate: certification.issuingDate,
         expireDate: certification.expireDate,
         certCode: certification.certCode,

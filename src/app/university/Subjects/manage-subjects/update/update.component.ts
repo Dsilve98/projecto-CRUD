@@ -10,7 +10,7 @@ import {ISubjects} from "../../subjects.model";
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent2 implements OnInit {
+export class ManageSubjectsUpdateComponent implements OnInit {
 
   manageSubjectForm: FormGroup;
   isSaving: boolean;
@@ -60,8 +60,8 @@ export class UpdateComponent2 implements OnInit {
   private createForm() {
     this.manageSubjectForm = new FormGroup({
       id: new FormControl(''),
-      creditos: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      subjectName: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      creditos: new FormControl('', [Validators.required, Validators.maxLength(2)]),
+      subjectName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       code: new FormControl('', [Validators.required]),
       area: new FormControl('', [Validators.required]),
       horasSemanais: new FormControl('', [Validators.required]),

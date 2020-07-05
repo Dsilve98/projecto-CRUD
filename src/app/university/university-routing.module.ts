@@ -3,17 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { ManageCoursesComponent } from './Courses/manage-courses/manage-courses.component';
 import { ManageSubjectsComponent } from './Subjects/manage-subjects/manage-subjects.component';
 import { ManageTeachersComponent } from './Teachers/manage-teachers/manage-teachers.component';
-import {UpdateComponent} from "./Courses/manage-courses/update/update.component";
+import {ManageCoursesUpdateComponent} from "./Courses/manage-courses/update/update.component";
 import {CourseResolver} from "./Courses/course.resolver";
-import {UpdateComponent2} from "./Subjects/manage-subjects/update/update.component";
+import {ManageSubjectsUpdateComponent} from "./Subjects/manage-subjects/update/update.component";
 import {SubjectResolver} from "./Subjects/subject.resolver";
-import {DetailComponent2} from "./Subjects/manage-subjects/detail/detail.component"
-import {DetailComponent} from "./Courses/manage-courses/detail/detail.component";
-import {DetailComponent3} from "./Teachers/manage-teachers/detail/detail.component";
-import {UpdateComponent3} from "./Teachers/manage-teachers/update/update.component";
+import {ManageSubjectsDetailComponent} from "./Subjects/manage-subjects/detail/detail.component"
+import {ManageCoursesDetailComponent} from "./Courses/manage-courses/detail/detail.component";
+import {ManageTeachersDetailComponent} from "./Teachers/manage-teachers/detail/detail.component";
+import {ManageTeachersUpdateComponent} from "./Teachers/manage-teachers/update/update.component";
 import {TeacherResolver} from "./Teachers/teacher.resolver";
-import {ManageProjectsUpdateComponent} from "../project/manage-projects/manage-projects-update.component";
-import {ProjectResolver} from "../project/project.resolver";
 
 const routes: Routes = [
   {
@@ -25,30 +23,30 @@ const routes: Routes = [
       },
       {
         path: 'managecourses/new',
-        component: UpdateComponent,
+        component: ManageCoursesUpdateComponent,
         resolve: {
           courses: CourseResolver
         }
       },
       {
         path: 'managecourses/:id/view',
-        component: DetailComponent,
+        component: ManageCoursesDetailComponent,
         resolve: {
           courses: CourseResolver
         }
       },
       {
         path: 'managecourses/:id/edit',
-        component: UpdateComponent,
+        component: ManageCoursesUpdateComponent,
         resolve: {
           courses: CourseResolver
         }
       },
       {
         path: 'managesubjects/:id/view',
-        component: DetailComponent2,
+        component: ManageSubjectsDetailComponent,
         resolve: {
-          subject: CourseResolver
+          subjects: SubjectResolver
         }
       },
       {
@@ -57,16 +55,16 @@ const routes: Routes = [
       },
       {
         path: 'managesubjects/new',
-        component: UpdateComponent2,
+        component: ManageSubjectsUpdateComponent,
         resolve: {
           subject: SubjectResolver
         }
       },
       {
         path: 'managesubjects/:id/edit',
-        component: UpdateComponent2,
+        component: ManageSubjectsUpdateComponent,
         resolve: {
-          subject: SubjectResolver
+          subjects: SubjectResolver
         }
       },
       {
@@ -75,21 +73,21 @@ const routes: Routes = [
       },
       {
         path: 'manageteachers/new',
-        component: UpdateComponent3,
+        component: ManageTeachersUpdateComponent,
         resolve: {
           teacher: TeacherResolver
         }
       },
       {
         path: 'manageteachers/:id/view',
-        component: DetailComponent3,
+        component: ManageTeachersDetailComponent,
         resolve: {
-          teacher: TeacherResolver
+          teachers: TeacherResolver
         }
       },
       {
         path: 'manageteachers/:id/edit',
-        component: UpdateComponent3,
+        component: ManageTeachersUpdateComponent,
         resolve: {
           teacher: TeacherResolver
         }

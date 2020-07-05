@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ICourses} from "../../../Courses/course.model";
 import {ActivatedRoute} from "@angular/router";
 import {ISubjects} from "../../subjects.model";
 
@@ -8,7 +7,7 @@ import {ISubjects} from "../../subjects.model";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent2 implements OnInit {
+export class ManageSubjectsDetailComponent implements OnInit {
 
   subjects: ISubjects | null = null;
 

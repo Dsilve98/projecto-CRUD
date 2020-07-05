@@ -9,7 +9,7 @@ import {ITeacher} from "../../teachers.model";
   templateUrl: './delete.component.html',
   styleUrls: ['./delete.component.scss']
 })
-export class DeleteComponent3 implements OnInit {
+export class ManageTeachersDeleteComponent implements OnInit {
   teacher?: ITeacher;
   constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private projectService: TeacherService) { }
 

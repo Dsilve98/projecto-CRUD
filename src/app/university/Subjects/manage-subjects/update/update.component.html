@@ -14,34 +14,35 @@
       </div>
       <div class="form-group col-md-6 mb-6">
         <label for="inputcreditos">Credits</label>
-        <input type="text" class="form-control"
+        <input type="number" class="form-control"
                [ngClass]="manageSubjectForm.get('creditos').invalid && (manageSubjectForm.get('creditos').dirty || manageSubjectForm.get('creditos').touched) && manageSubjectForm.controls['creditos'].errors ? 'is-invalid' : ''"
                id="inputcreditos" placeholder="Credits" formControlName="creditos">
         <div class="invalid-feedback"
              *ngIf="manageSubjectForm.get('creditos').invalid && (manageSubjectForm.get('creditos').dirty || manageSubjectForm.get('creditos').touched)">
           <span *ngIf="manageSubjectForm.controls['creditos'].hasError('required')">This field is required</span>
-          <span *ngIf="manageSubjectForm.controls['creditos'].hasError('maxlength')">Max length of this field is 10 characters</span>
+          <span *ngIf="manageSubjectForm.controls['creditos'].hasError('maxlength')">Max length of this field is 2 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
         <label for="inputcode">Code</label>
         <input type="text" class="form-control"
-               [ngClass]="manageSubjectForm.get('average').invalid && (manageSubjectForm.get('code').dirty || manageSubjectForm.get('code').touched) && manageSubjectForm.controls['code'].errors ? 'is-invalid' : ''"
+               [ngClass]="manageSubjectForm.get('code').invalid && (manageSubjectForm.get('code').dirty || manageSubjectForm.get('code').touched) && manageSubjectForm.controls['code'].errors ? 'is-invalid' : ''"
                id="inputcode" placeholder="Code" formControlName="code">
         <div class="invalid-feedback"
              *ngIf="manageSubjectForm.get('code').invalid && (manageSubjectForm.get('code').dirty || manageSubjectForm.get('code').touched)">
           <span *ngIf="manageSubjectForm.controls['code'].hasError('required')">This field is required</span>
+          <span *ngIf="manageSubjectForm.controls['code'].hasError('maxlength')">Max length of this field is 10 characters</span>
         </div>
       </div>
-    <div class="form-row">
       <div class="form-group col-md-6 mb-6">
         <label for="inputhorasSemanais">Horas Semanais</label>
-        <input type="text" class="form-control"
+        <input type="time" class="form-control"
                [ngClass]="manageSubjectForm.get('horasSemanais').invalid && (manageSubjectForm.get('horasSemanais').dirty || manageSubjectForm.get('horasSemanais').touched) && manageSubjectForm.controls['horasSemanais'].errors ? 'is-invalid' : ''"
                id="inputhorasSemanais" placeholder="Horas Semanais" formControlName="horasSemanais">
         <div class="invalid-feedback"
              *ngIf="manageSubjectForm.get('horasSemanais').invalid && (manageSubjectForm.get('horasSemanais').dirty || manageSubjectForm.get('horasSemanais').touched)">
           <span *ngIf="manageSubjectForm.controls['horasSemanais'].hasError('required')">This field is required</span>
+          <span *ngIf="manageSubjectForm.controls['horasSemanais'].hasError('maxlength')">Max length of this field is 10 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -52,24 +53,31 @@
         <div class="invalid-feedback"
              *ngIf="manageSubjectForm.get('course').invalid && (manageSubjectForm.get('course').dirty || manageSubjectForm.get('course').touched)">
           <span *ngIf="manageSubjectForm.controls['course'].hasError('required')">This field is required</span>
+          <span *ngIf="manageSubjectForm.controls['course'].hasError('maxlength')">Max length of this field is 10 characters</span>
+
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
-        <label for="inputarea">Area</label>
-        <input type="text" class="form-control"
-               [ngClass]="manageSubjectForm.get('area').invalid && (manageSubjectForm.get('area').dirty || manageSubjectForm.get('area').touched) && manageSubjectForm.controls['area'].errors ? 'is-invalid' : ''"
-               id="inputarea" placeholder="Area" formControlName="area">
-        <div class="invalid-feedback"
-             *ngIf="manageSubjectForm.get('area').invalid && (manageSubjectForm.get('area').dirty || manageSubjectForm.get('area').touched)">
+        <label for="inputArea">Area</label>
+        <select id="inputArea" class="form-control" [ngClass]="manageSubjectForm.get('area').invalid && (manageSubjectForm.get('area').dirty || manageSubjectForm.get('area').touched) && manageSubjectForm.controls['area'].errors ? 'is-invalid' : ''"
+                formControlName="area">
+          <option value="Matemática">Matemática</option>
+          <option value="Física">Física</option>
+          <option value="Programação">Programação</option>
+          <option value="Web">Web</option>
+          <option value="Redes">Redes</option>
+          <option value="Programação Móvel">Programação Móvel</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="manageSubjectForm.get('area').invalid && (manageSubjectForm.get('area').dirty || manageSubjectForm.get('area').touched)">
           <span *ngIf="manageSubjectForm.controls['area'].hasError('required')">This field is required</span>
         </div>
       </div>
-    </div>
     <div class="row margin-top-10">
       <div class="col-12">
         <re-captcha formControlName="formRecaptcha"></re-captcha>
       </div>
     </div>
+      <br/>
     <div class="margin-top-20">
       <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
         <i class="fa fa-ban"></i><span>Cancel</span>
