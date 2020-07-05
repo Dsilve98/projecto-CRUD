@@ -30,7 +30,9 @@
               <span *ngIf="manageSubjectForm.controls['creditos'].hasError('maxlength')">Max length of this field is 2 characters</span>
             </div>
           </div>
+        </div>
 
+        <div class="form-row">
           <div class="form-group col-md-6 mb-6">
             <label for="inputcode">Code</label>
             <input type="text" class="form-control"
@@ -54,6 +56,9 @@
               <span *ngIf="manageSubjectForm.controls['horasSemanais'].hasError('maxlength')">Max length of this field is 10 characters</span>
             </div>
           </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group col-md-6 mb-6">
             <label for="inputcourse">Course</label>
             <input type="text" class="form-control"
@@ -81,29 +86,24 @@
               <span *ngIf="manageSubjectForm.controls['area'].hasError('required')">This field is required</span>
             </div>
           </div>
-          <h4 id="teacher-heading">
-            <span>Teachers</span>
-            <button type="button" id="new-teacher-btn" class="btn btn-primary float-right" (click)="addTeacher()">
-              <i class="fa fa-plus"></i>
-              <span>
-              Add existing Teacher
-            </span>
-            </button>
-          </h4>
-        <div class="row margin-top-10">
-          <div class="col-12">
-            <re-captcha formControlName="formRecaptcha"></re-captcha>
+        </div>
+
+        <hr>
+        <br/>
+        <div class="form-row justify-content-center">
+          <div class="row margin-top-10">
+            <div class="col-12">
+              <re-captcha formControlName="formRecaptcha"></re-captcha>
+            </div>
           </div>
-        </div>
-          <br/>
-        <div class="margin-top-20">
-          <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
-            <i class="fa fa-ban"></i><span>Cancel</span>
-          </button>
-          <button type="submit" id="save-entity" [disabled]="manageSubjectForm.invalid || isSaving" class="btn btn-primary">
-            <i class="fa fa-save"></i><span>Save</span>
-          </button>
-        </div>
+          <div class="margin-top-20 ml-4">
+            <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+              <i class="fa fa-ban"></i><span>Cancel</span>
+            </button>
+            <button type="submit" id="save-entity" [disabled]="manageSubjectForm.invalid || isSaving" class="btn btn-luso-light">
+              <i class="fa fa-save"></i><span>Save</span>
+            </button>
+          </div>
         </div>
       </form>
     </div>

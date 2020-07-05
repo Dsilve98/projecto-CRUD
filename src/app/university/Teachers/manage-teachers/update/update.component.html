@@ -1,69 +1,91 @@
 <div class="panel-container">
-  <form [formGroup]="manageTeacherForm" (ngSubmit)="saveTeacher()">
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputteacherName">Teacher Name</label>
-        <input type="text" class="form-control" [ngClass]="manageTeacherForm.get('teacherName').invalid && (manageTeacherForm.get('teacherName').dirty || manageTeacherForm.get('teacherName').touched) && manageTeacherForm.controls['teacherName'].errors ? 'is-invalid' : ''"
-               id="inputteacherName" placeholder="Teacher Name" formControlName="teacherName">
-        <div class="invalid-feedback" *ngIf="manageTeacherForm.get('teacherName').invalid && (manageTeacherForm.get('teacherName').dirty || manageTeacherForm.get('teacherName').touched)">
-          <span *ngIf="manageTeacherForm.controls['teacherName'].hasError('required')">This field is required</span>
-          <span *ngIf="manageTeacherForm.controls['teacherName'].hasError('maxlength')">Max length of this field is 50 characters</span>
-        </div>
-      </div>
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputcontacto">Contact</label>
-        <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" [ngClass]="manageTeacherForm.get('contacto').invalid && (manageTeacherForm.get('contacto').dirty || manageTeacherForm.get('contacto').touched) && manageTeacherForm.controls['contacto'].errors ? 'is-invalid' : ''"
-               id="inputcontacto" placeholder="Contact" formControlName="contacto">
-        <div class="invalid-feedback" *ngIf="manageTeacherForm.get('contacto').invalid && (manageTeacherForm.get('contacto').dirty || manageTeacherForm.get('contacto').touched)">
-          <span *ngIf="manageTeacherForm.controls['contacto'].hasError('required')">This field is required</span>
-          <span *ngIf="manageTeacherForm.controls['contacto'].hasError('maxlength')">Max length of this field is 10 characters</span>
-        </div>
-      </div>
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputteacherSpecialization">Teacher Specialization</label>
-        <select id="inputteacherSpecialization" class="form-control" [ngClass]="manageTeacherForm.get('teacherSpecialization').invalid && (manageTeacherForm.get('teacherSpecialization').dirty || manageTeacherForm.get('teacherSpecialization').touched) && manageTeacherForm.controls['teacherSpecialization'].errors ? 'is-invalid' : ''"
-                formControlName="teacherSpecialization">
-          <option value="Matemática">Matemática</option>
-          <option value="Física">Física</option>
-          <option value="Programação">Programação</option>
-          <option value="Web">Web</option>
-          <option value="Redes">Redes</option>
-          <option value="Programação Móvel">Programação Móvel</option>
-        </select>
-        <div class="invalid-feedback" *ngIf="manageTeacherForm.get('teacherSpecialization').invalid && (manageTeacherForm.get('teacherSpecialization').dirty || manageTeacherForm.get('teacherSpecialization').touched)">
-          <span *ngIf="manageTeacherForm.controls['teacherSpecialization'].hasError('required')">This field is required</span>
-        </div>
-      </div>
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" [ngClass]="manageTeacherForm.get('city').invalid && (manageTeacherForm.get('city').dirty || manageTeacherForm.get('city').touched) && manageTeacherForm.controls['city'].errors ? 'is-invalid' : ''"
-               id="inputCity" placeholder="City" formControlName="city">
-        <div class="invalid-feedback" *ngIf="manageTeacherForm.get('city').invalid && (manageTeacherForm.get('city').dirty || manageTeacherForm.get('city').touched)">
-          <span *ngIf="manageTeacherForm.controls['city'].hasError('required')">This field is required</span>
-        </div>
-      </div>
-      <div class="form-group col-md-6 mb-6">
-        <label for="inputemail">Email</label>
-        <input type="email" class="form-control" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" [ngClass]="manageTeacherForm.get('email').invalid && (manageTeacherForm.get('email').dirty || manageTeacherForm.get('email').touched) && manageTeacherForm.controls['email'].errors ? 'is-invalid' : ''"
-               id="inputemail" placeholder="Email (format: xxx@xxx.xxx)" formControlName="email">
-        <div class="invalid-feedback" *ngIf="manageTeacherForm.get('email').invalid && (manageTeacherForm.get('email').dirty || manageTeacherForm.get('email').touched)">
-          <span *ngIf="manageTeacherForm.controls['email'].hasError('required')">This field is required</span>
-          <span *ngIf="manageTeacherForm.controls['email'].hasError('maxlength')">Max length of this field is 10 characters</span>
-        </div>
-      </div>
+  <div class="row">
+
+    <div class="col-3">
     </div>
-    <div class="row margin-top-10">
-      <div class="col-12">
-        <re-captcha formControlName="formRecaptcha"></re-captcha>
-      </div>
+    <div class="col-6">
+      <form [formGroup]="manageTeacherForm" (ngSubmit)="saveTeacher()">
+
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-6">
+            <label for="inputteacherName">Teacher Name</label>
+            <input type="text" class="form-control" [ngClass]="manageTeacherForm.get('teacherName').invalid && (manageTeacherForm.get('teacherName').dirty || manageTeacherForm.get('teacherName').touched) && manageTeacherForm.controls['teacherName'].errors ? 'is-invalid' : ''"
+                   id="inputteacherName" placeholder="Teacher Name" formControlName="teacherName">
+            <div class="invalid-feedback" *ngIf="manageTeacherForm.get('teacherName').invalid && (manageTeacherForm.get('teacherName').dirty || manageTeacherForm.get('teacherName').touched)">
+              <span *ngIf="manageTeacherForm.controls['teacherName'].hasError('required')">This field is required</span>
+              <span *ngIf="manageTeacherForm.controls['teacherName'].hasError('maxlength')">Max length of this field is 50 characters</span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mb-6">
+            <label for="inputcontacto">Contact</label>
+            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" [ngClass]="manageTeacherForm.get('contacto').invalid && (manageTeacherForm.get('contacto').dirty || manageTeacherForm.get('contacto').touched) && manageTeacherForm.controls['contacto'].errors ? 'is-invalid' : ''"
+                   id="inputcontacto" placeholder="Contact" formControlName="contacto">
+            <div class="invalid-feedback" *ngIf="manageTeacherForm.get('contacto').invalid && (manageTeacherForm.get('contacto').dirty || manageTeacherForm.get('contacto').touched)">
+              <span *ngIf="manageTeacherForm.controls['contacto'].hasError('required')">This field is required</span>
+              <span *ngIf="manageTeacherForm.controls['contacto'].hasError('maxlength')">Max length of this field is 10 characters</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-6">
+            <label for="inputteacherSpecialization">Teacher Specialization</label>
+            <select id="inputteacherSpecialization" class="form-control" [ngClass]="manageTeacherForm.get('teacherSpecialization').invalid && (manageTeacherForm.get('teacherSpecialization').dirty || manageTeacherForm.get('teacherSpecialization').touched) && manageTeacherForm.controls['teacherSpecialization'].errors ? 'is-invalid' : ''"
+                    formControlName="teacherSpecialization">
+              <option value="Matemática">Matemática</option>
+              <option value="Física">Física</option>
+              <option value="Programação">Programação</option>
+              <option value="Web">Web</option>
+              <option value="Redes">Redes</option>
+              <option value="Programação Móvel">Programação Móvel</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="manageTeacherForm.get('teacherSpecialization').invalid && (manageTeacherForm.get('teacherSpecialization').dirty || manageTeacherForm.get('teacherSpecialization').touched)">
+              <span *ngIf="manageTeacherForm.controls['teacherSpecialization'].hasError('required')">This field is required</span>
+            </div>
+          </div>
+          <div class="form-group col-md-6 mb-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" [ngClass]="manageTeacherForm.get('city').invalid && (manageTeacherForm.get('city').dirty || manageTeacherForm.get('city').touched) && manageTeacherForm.controls['city'].errors ? 'is-invalid' : ''"
+                   id="inputCity" placeholder="City" formControlName="city">
+            <div class="invalid-feedback" *ngIf="manageTeacherForm.get('city').invalid && (manageTeacherForm.get('city').dirty || manageTeacherForm.get('city').touched)">
+              <span *ngIf="manageTeacherForm.controls['city'].hasError('required')">This field is required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-6">
+            <label for="inputemail">Email</label>
+            <input type="email" class="form-control" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" [ngClass]="manageTeacherForm.get('email').invalid && (manageTeacherForm.get('email').dirty || manageTeacherForm.get('email').touched) && manageTeacherForm.controls['email'].errors ? 'is-invalid' : ''"
+                   id="inputemail" placeholder="Email (format: xxx@xxx.xxx)" formControlName="email">
+            <div class="invalid-feedback" *ngIf="manageTeacherForm.get('email').invalid && (manageTeacherForm.get('email').dirty || manageTeacherForm.get('email').touched)">
+              <span *ngIf="manageTeacherForm.controls['email'].hasError('required')">This field is required</span>
+              <span *ngIf="manageTeacherForm.controls['email'].hasError('maxlength')">Max length of this field is 10 characters</span>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <br/>
+        <div class="form-row justify-content-center">
+          <div class="row margin-top-10">
+            <div class="col-12">
+              <re-captcha formControlName="formRecaptcha"></re-captcha>
+            </div>
+          </div>
+          <div class="margin-top-20 ml-4">
+            <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+              <i class="fa fa-ban"></i><span>Cancel</span>
+            </button>
+            <button type="submit" id="save-entity" [disabled]="manageTeacherForm.invalid || isSaving" class="btn btn-luso-light">
+              <i class="fa fa-save"></i><span>Save</span>
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="margin-top-20">
-      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
-        <i class="fa fa-ban"></i><span>Cancel</span>
-      </button>
-      <button type="submit" id="save-entity" [disabled]="manageTeacherForm.invalid || isSaving" class="btn btn-primary">
-        <i class="fa fa-save"></i><span>Save</span>
-      </button>
+    <div class="col-3">
     </div>
-  </form>
+  </div>
 </div>
