@@ -11,7 +11,7 @@ import {ITeacher} from "../../teachers.model";
   styleUrls: ['./update.component.scss']
 })
 export class ManageTeachersUpdateComponent implements OnInit {
-
+  teachers?: ITeacher[] = [];
   manageTeacherForm: FormGroup;
   isSaving: boolean;
 
@@ -24,8 +24,11 @@ export class ManageTeachersUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.activatedRoute.data.subscribe(({ teacher }) => {
+    this.activatedRoute.data.subscribe(({teacher}) => {
       this.updateForm(teacher);
+    });
+    this.teacherService.getTeacher().subscribe((data: ITeacher[]) => {
+      this.teachers = data;
     });
   }
 

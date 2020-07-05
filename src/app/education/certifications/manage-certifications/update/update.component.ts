@@ -19,16 +19,18 @@ export class UpdateComponent2 implements OnInit {
               private toastr: ToastrService,
               private projectService: CertificationService,
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.createForm();
-    this.activatedRoute.data.subscribe(({project}) => {
-      this.updateForm(project);
+    this.activatedRoute.data.subscribe(({certification}) => {
+      this.updateForm(certification);
     });
   }
-    saveCertifications(): void {
-      this.isSaving = true;
+
+  saveCertifications(): void {
+    this.isSaving = true;
     if (!this.manageCertificationForm.get(['id']).value) {
       this.projectService.createCertification(this.manageCertificationForm.getRawValue()).then(data => {
           this.isSaving = false;
@@ -52,22 +54,23 @@ export class UpdateComponent2 implements OnInit {
     }
   }
 
-    previousState(): void {
-      window.history.back();
+  previousState(): void {
+    window.history.back();
   }
 
   private createForm() {
-      this.manageCertificationForm = new FormGroup({
-        id: new FormControl(''),
-        certName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-        issuingOrg: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-        expires: new FormControl(false, [Validators.required]),
-        issuingDate: new FormControl('', [Validators.required]),
-        expireDate: new FormControl('', [Validators.required]),
-        certCode: new FormControl('', [Validators.required]),
-        certUrl: new FormControl('', [Validators.required,  Validators.maxLength(50)]),
-      });
-    }
+    this.manageCertificationForm = new FormGroup({
+      id: new FormControl(''),
+      certName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      issuingOrg: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      expires: new FormControl(false, [Validators.required]),
+      issuingDate: new FormControl('', [Validators.required]),
+      expireDate: new FormControl('', [Validators.required]),
+      certCode: new FormControl('', [Validators.required]),
+      certUrl: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    });
+  }
+
 
 
   private updateForm(certification: Certification): void {

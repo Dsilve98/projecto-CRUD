@@ -65,70 +65,7 @@
       </div>
     </div>
     <hr>
-    <h4 id="teacher-heading">
-      <span>Teachers</span>
-      <button type="button" id="new-teacher-btn" class="btn btn-primary float-right" (click)="addTeacher()">
-        <i class="fa fa-plus"></i>
-        <span>
-          Add existing Teacher
-        </span>
-      </button>
-    </h4>
     <br/>
-    <div class="table-responsive" *ngIf="teacherControls.length > 0">
-      <table class="table table-striped">
-        <tbody>
-        <tr *ngFor="let teacher of teacherControls; index as i;" formArrayName="teacher">
-          <ng-container [formGroupName]="i">
-            <div class="form-row">
-              <div class="form-group col-md-3 mb-3">
-                <label for="inputteacherName">Teacher Name</label>
-                <input type="text" class="form-control" [ngClass]="manageCourseForm.get('teacherName').invalid && (manageCourseForm.get('teacherName').dirty || manageCourseForm.get('teacherName').touched) && manageCourseForm.controls['teacherName'].errors ? 'is-invalid' : ''"
-                       id="inputteacherName" placeholder="Teacher Name" formControlName="teacherName">
-                <div class="invalid-feedback" *ngIf="manageCourseForm.get('teacherName').invalid && (manageCourseForm.get('teacherName').dirty || manageCourseForm.get('teacherName').touched)">
-                  <span *ngIf="manageCourseForm.controls['teacherName'].hasError('required')">This field is required</span>
-                  <span *ngIf="manageCourseForm.controls['teacherName'].hasError('maxlength')">Max length of this field is 50 characters</span>
-                </div>
-              </div>
-              <div class="form-group col-md-3 mb-3">
-                <label for="inputcontacto">Contacto</label>
-                <input type="text" class="form-control" [ngClass]="manageCourseForm.get('contacto').invalid && (manageCourseForm.get('contacto').dirty || manageCourseForm.get('contacto').touched) && manageCourseForm.controls['contacto'].errors ? 'is-invalid' : ''"
-                       id="inputcontacto" placeholder="Contacto" formControlName="contacto">
-                <div class="invalid-feedback" *ngIf="manageCourseForm.get('contacto').invalid && (manageCourseForm.get('contacto').dirty || manageCourseForm.get('contacto').touched)">
-                  <span *ngIf="manageCourseForm.controls['contacto'].hasError('required')">This field is required</span>
-                  <span *ngIf="manageCourseForm.controls['contacto'].hasError('maxlength')">Max length of this field is 10 characters</span>
-                </div>
-              </div>
-              <div class="form-group col-md-3 mb-3">
-                <label for="inputteacherSpecialization">Teacher Specialization</label>
-                <input type="text" class="form-control" [ngClass]="manageCourseForm.get('teacherSpecialization').invalid && (manageCourseForm.get('teacherSpecialization').dirty || manageCourseForm.get('teacherSpecialization').touched) && manageCourseForm.controls['teacherSpecialization'].errors ? 'is-invalid' : ''"
-                       id="inputteacherSpecialization" placeholder="Teacher Specialization" formControlName="teacherSpecialization">
-                <div class="invalid-feedback" *ngIf="manageCourseForm.get('teacherSpecialization').invalid && (manageCourseForm.get('teacherSpecialization').dirty || manageCourseForm.get('teacherSpecialization').touched)">
-                  <span *ngIf="manageCourseForm.controls['teacherSpecialization'].hasError('required')">This field is required</span>
-                </div>
-              </div>
-              <div class="form-group col-md-3 mb-3">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" [ngClass]="manageCourseForm.get('city').invalid && (manageCourseForm.get('city').dirty || manageCourseForm.get('city').touched) && manageCourseForm.controls['city'].errors ? 'is-invalid' : ''"
-                       id="inputCity" placeholder="City" formControlName="city">
-                <div class="invalid-feedback" *ngIf="manageCourseForm.get('city').invalid && (manageCourseForm.get('city').dirty || manageCourseForm.get('city').touched)">
-                  <span *ngIf="manageCourseForm.controls['city'].hasError('required')">This field is required</span>
-                </div>
-              </div>
-            </div>
-
-            <td class="text-right">
-              <div class="btn-group flex-btn-group-container">
-                <button type="button" class="btn btn-success btn-sm" (click)="deleteTeacher(i)">
-                  <i class="fa fa-times"></i>
-                  <span class="d-none d-md-inline"> Accept</span>
-                </button>
-              </div>
-            </td>
-          </ng-container>
-        </tbody>
-      </table>
-    </div>
     <div class="row margin-top-10">
       <div class="col-12">
         <re-captcha formControlName="formRecaptcha"></re-captcha>

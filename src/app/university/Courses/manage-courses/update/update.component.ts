@@ -28,9 +28,6 @@ export class ManageCoursesUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ courses }) => {
       this.updateForm(courses);
     });
-    this.activatedRoute.data.subscribe(({ teachers }) => {
-      this.getTeacher(teachers);
-    });
   }
 
   saveCourse(): void {
@@ -62,18 +59,6 @@ export class ManageCoursesUpdateComponent implements OnInit {
     window.history.back();
   }
 
-  addTeacher(): void {
-    (this.manageCourseForm.get(['teachers']) as FormArray).push(this.createTeacherFormGroup());
-  }
-
-  deleteTeacher(index: number): void {
-    (this.manageCourseForm.get(['teachers']) as FormArray).removeAt(index);
-  }
-
-  get teacherControls(): Array<AbstractControl> {
-    return (this.manageCourseForm.get('teachers') as FormArray).controls;
-  }
-
   private createForm() {
     this.manageCourseForm = new FormGroup({
       id: new FormControl(''),
@@ -84,17 +69,6 @@ export class ManageCoursesUpdateComponent implements OnInit {
       credits: new FormControl('', [Validators.required]),
       numberHalfs: new FormControl('', [Validators.required]),
       area: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
-      teachers: this.formBuilder.array([]),
-    });
-  }
-
-  private createTeacherFormGroup(): FormGroup {
-    return new FormGroup({
-      id: new FormControl(''),
-      teacherName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      contacto: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      teacherSpecialization: new FormControl('', [Validators.required]),
-      city: new FormControl('')
     });
   }
 
@@ -107,36 +81,7 @@ export class ManageCoursesUpdateComponent implements OnInit {
       examDate: courses.examDate,
       credits: courses.credits,
       numberHalfs: courses.numberHalfs,
-      area: courses.area,
+      area: courses.area
     });
-  }
-
-  private getTeacher(teacher: ITeacher): void {
-    this.manageCourseForm.patchValue({
-      id: teacher.id,
-      teacherName: teacher.teacherName,
-      contacto: teacher.contacto,
-      city: teacher.city,
-      teacherSpecialization: teacher.teacherSpecialization,
-    });
-  }
-
-
-  private Teacher(courses: ICourses): FormGroup[] {
-    const fg: FormGroup[] = [];
-    if (!courses.teachers) {
-      courses.teachers = [];
-    }
-    courses.teachers.forEach(teacher => {
-      (this.formBuilder.group({
-          id: new FormControl(teacher.id),
-        teacherSpecialization: new FormControl(teacher.teacherSpecialization, [Validators.required, Validators.maxLength(50)]),
-          teacherName: new FormControl(teacher.teacherName, [Validators.required, Validators.maxLength(50)]),
-          contacto: new FormControl(teacher.contacto, [Validators.required]),
-          city: new FormControl(teacher.city)
-        })
-      );
-    });
-    return fg;
   }
 }

@@ -18,7 +18,7 @@ export class ManageCoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.courseService.getCourses().subscribe((data: ITeacher[]) => {
+    this.courseService.getCourses().subscribe((data: ICourses[]) => {
       this.spinner.hide();
       this.courses = data;
     }, err => {

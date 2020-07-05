@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {SubjectService} from "../../subject.service";
 import {ISubjects} from "../../subjects.model";
+import {ITeacher} from "../../../Teachers/teachers.model";
+import {ICourses} from "../../../Courses/course.model";
 
 @Component({
   selector: 'app-update',
@@ -25,6 +27,9 @@ export class ManageSubjectsUpdateComponent implements OnInit {
     this.createForm();
     this.activatedRoute.data.subscribe(({ subjects }) => {
       this.updateForm(subjects);
+    });
+    this.activatedRoute.data.subscribe(({ teachers }) => {
+      this.getTeacher(teachers);
     });
   }
 
@@ -67,6 +72,7 @@ export class ManageSubjectsUpdateComponent implements OnInit {
       horasSemanais: new FormControl('', [Validators.required]),
       course: new FormControl('', [Validators.required]),
       formRecaptcha: new FormControl(null, [Validators.required]),
+      teachers: this.formBuilder.array([]),
     });
   }
 
@@ -80,5 +86,55 @@ export class ManageSubjectsUpdateComponent implements OnInit {
       area: subjects.area,
       course: subjects.course,
     });
+  }
+
+  addTeacher(): void {
+    (this.manageSubjectForm.get(['teachers']) as FormArray).push(this.createTeacherFormGroup());
+  }
+
+  private createTeacherFormGroup(): FormGroup {
+    return new FormGroup({
+      id: new FormControl(''),
+      teacherName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      contacto: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      teacherSpecialization: new FormControl('', [Validators.required]),
+      city: new FormControl('')
+    });
+  }
+
+  private getTeacher(teacher: ITeacher): void {
+    this.manageSubjectForm.patchValue({
+      id: teacher.id,
+      teacherName: teacher.teacherName,
+      contacto: teacher.contacto,
+      city: teacher.city,
+      teacherSpecialization: teacher.teacherSpecialization,
+    });
+  }
+
+  private Teacher(courses: ICourses): FormGroup[] {
+    const fg: FormGroup[] = [];
+    if (!courses.teachers) {
+      courses.teachers = [];
+    }
+    courses.teachers.forEach(teacher => {
+      (this.formBuilder.group({
+          id: new FormControl(teacher.id),
+          teacherSpecialization: new FormControl(teacher.teacherSpecialization, [Validators.required, Validators.maxLength(50)]),
+          teacherName: new FormControl(teacher.teacherName, [Validators.required, Validators.maxLength(50)]),
+          contacto: new FormControl(teacher.contacto, [Validators.required]),
+          city: new FormControl(teacher.city)
+        })
+      );
+    });
+    return fg;
+  }
+
+  deleteTeacher(index: number): void {
+    (this.manageSubjectForm.get(['teachers']) as FormArray).removeAt(index);
+  }
+
+  get teacherControls(): Array<AbstractControl> {
+    return (this.manageSubjectForm.get('teachers') as FormArray).controls;
   }
 }
