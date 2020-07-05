@@ -33,12 +33,16 @@ export class AcademicService {
 
   public async createAcademic(academic: IAcademic): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const time = new Date();
+    academic.timeStamp = time.getTime();
     academic.id = this.af.createId();
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
   }
 
   public async updateAcademic(academic: IAcademic): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const time = new Date();
+    academic.timeStamp = time.getTime();
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
   }
 

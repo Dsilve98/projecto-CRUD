@@ -33,12 +33,16 @@ export class CertificationService {
 
   public async createCertification(certification: ICertification): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const time = new Date();
+    certification.timeStamp = time.getTime();
     certification.id = this.af.createId();
     return await this.af.collection(CertificationService.CERTIFICATION_KEY).doc(certification.id).set(certification);
   }
 
   public async updateCertification(certification: ICertification): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const time = new Date();
+    certification.timeStamp = time.getTime();
     return await this.af.collection(CertificationService.CERTIFICATION_KEY).doc(certification.id).set(certification);
   }
 

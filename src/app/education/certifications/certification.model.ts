@@ -7,6 +7,7 @@ export interface ICertification {
   expireDate?: string;
   certCode?: string;
   certUrl?: string;
+  timeStamp?: number;
 }
 
 export class Certification implements ICertification {
@@ -18,6 +19,7 @@ export class Certification implements ICertification {
     public issuingDate?: string,
     public expireDate?: string,
     public certCode?: string,
-    public certUrl?: string
+    public certUrl?: string,
+    public timeStamp?: number
   ) {}
 }

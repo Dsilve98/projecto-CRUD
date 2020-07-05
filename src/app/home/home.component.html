@@ -12,19 +12,19 @@
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="col-md-4">
-        <h2>Titulo teste</h2>
-        <p> Teste 123</p>
+      <div class="col-md-4" *ngIf="totalProjects.length > 0 ">
+        <h2 class="card-title">{{ lastProject.projectName}}</h2>
+        <p> {{ lastProject.companyName }} {{ lastProject.city }} {{ lastProject.city }}</p>
         <p><a class="btn btn-luso-light " href="#" role="button">View details »</a></p>
       </div>
-      <div class="col-md-4">
-        <h2>Heading 2</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <div class="col-md-4" *ngIf="totalAcademics.length > 0 ">
+        <h2 class="card-title">{{ lastAcademic.educationalInstitution}}</h2>
+        <p> {{ lastAcademic.description }} {{ lastAcademic.activities }} {{ lastAcademic.formation }}</p>
         <p><a class="btn btn-luso-light" href="#" role="button">View details »</a></p>
       </div>
-      <div class="col-md-4">
-        <h2>Heading 3</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <div class="col-md-4" *ngIf="totalCertifications.length > 0 ">
+        <h2 class="card-title">{{ lastCertification.certName}}</h2>
+        <p> {{ lastCertification.certCode }} {{ lastCertification.expireDate }} {{ lastCertification.certUrl }}</p>
         <p><a class="btn btn-luso-light" href="#" role="button">View details »</a></p>
       </div>
     </div>

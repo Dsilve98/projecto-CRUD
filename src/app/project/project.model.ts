@@ -9,6 +9,7 @@ export interface IProject {
   zip?: string;
   personnelProject?: boolean;
   projectTeamMembers?: IProjectTeamMember[];
+  timeStamp?: number;
 }
 
 export class Project implements IProject {
@@ -22,7 +23,8 @@ export class Project implements IProject {
     public state?: string,
     public zip?: string,
     public personnelProject?: boolean,
-    public projectTeamMembers?: IProjectTeamMember[]
+    public projectTeamMembers?: IProjectTeamMember[],
+    public timeStamp?: number
   ) {}
 }
 

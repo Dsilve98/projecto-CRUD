@@ -62,13 +62,13 @@ export class UpdateComponent implements OnInit {
     this.manageAcademicForm = new FormGroup({
       id: new FormControl(''),
       educationalInstitution: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      formation: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      formation: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       fieldOfStudy: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
       grade: new FormControl('', [Validators.required]),
-      activities: new FormControl('', [Validators.required,  Validators.maxLength(8)]),
-      description: new FormControl(false, [Validators.required]),
+      activities: new FormControl('', [Validators.required,  Validators.maxLength(20)]),
+      description: new FormControl('', [Validators.required]),
     });
   }
 

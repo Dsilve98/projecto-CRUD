@@ -42,6 +42,8 @@ export class ProjectService {
 
   public async createProject(project: IProject): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const time = new Date();
+    project.timeStamp = time.getTime();
     project.id = this.af.createId();
     project.projectTeamMembers.forEach(ptm => ptm.id = this.af.createId());
     return await this.af.collection(ProjectService.PROJECT_KEY).doc(project.id).set(project);
@@ -49,6 +51,8 @@ export class ProjectService {
 
   public async updateProject(project: IProject): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    const tempDate = new Date();
+    project.timeStamp = tempDate.getTime();
     project.projectTeamMembers.filter(ptm => !ptm.id).forEach(ptmFiltered => ptmFiltered.id = this.af.createId());
     return await this.af.collection(ProjectService.PROJECT_KEY).doc(project.id).set(project);
   }

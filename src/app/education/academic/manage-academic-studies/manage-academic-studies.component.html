@@ -20,11 +20,11 @@
         <th scope="col" ><span>Activities</span></th>
         <th scope="col" ><span>Description</span></th>
         <th scope="col" ><span>Educational Institution</span></th>
-        <th scope="col" ><span>End Date</span></th>
         <th scope="col" ><span>Field Of Study</span></th>
         <th scope="col" ><span>Formation</span></th>
         <th scope="col" ><span>Grade</span></th>
         <th scope="col" ><span>Start Date</span></th>
+        <th scope="col" ><span>End Date</span></th>
         <th scope="col"></th>
       </tr>
       </thead>
@@ -34,11 +34,11 @@
         <td>{{ academic.activities }}</td>
         <td>{{ academic.description }}</td>
         <td>{{ academic.educationalInstitution }}</td>
-        <td>{{ academic.endDate }}</td>
         <td>{{ academic.fieldOfStudy }}</td>
         <td>{{ academic.formation }}</td>
         <td>{{ academic.grade }}</td>
         <td>{{ academic.startDate }}</td>
+        <td>{{ academic.endDate }}</td>
         <td class="text-right">
           <div class="btn-group">
             <button type="submit" [routerLink]="[academic.id, 'view']" class="btn btn-info btn-sm">
